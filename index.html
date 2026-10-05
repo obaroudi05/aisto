@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Prototype de démonstration — données entièrement fictives.">
-<title>PRAXIS — Gestion de cabinet de médecine esthétique</title>
+<title>AISTO — Gestion de cabinet de médecine esthétique</title>
 <style>
 :root{
   color-scheme:light;
@@ -119,6 +119,8 @@ a{color:var(--accent);text-decoration:none;cursor:pointer}
   display:grid;place-items:center;color:#fff;font-weight:750;font-size:13px;letter-spacing:-.02em;box-shadow:0 4px 12px -2px rgba(42,120,214,.45)}
 .logo b{display:block;font-size:14px;font-weight:680;letter-spacing:.02em}
 .logo .lg-t span{display:block;font-size:11px;color:var(--ink-3);margin-top:-2px}
+/* le nom du cabinet sous celui du logiciel (0.7.4 : « CENTRE GEMELIA ») */
+.logo .lg-t #lg-cab{font-size:10px;letter-spacing:.07em;text-transform:uppercase;margin-top:1px}
 
 .cmdk{display:flex;align-items:center;gap:7px;width:100%;height:36px;padding:0 9px;margin-bottom:14px;
   font-size:12.6px;white-space:nowrap;overflow:hidden;
@@ -767,7 +769,11 @@ td .lvide{color:var(--ink-3);text-decoration:line-through}
 .dv-tb td{padding:1.4mm 3mm 1.4mm 0;border-bottom:1px solid #ececef;vertical-align:top}
 .dv-tb th:last-child,.dv-tb td:last-child{padding-right:0}
 .dv-tb .n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
-.dv-tb .dz{font-size:9.5px;color:#52525b;margin-top:.6mm}
+.dv-tb .dz{font-size:9.5px;color:#52525b;margin-top:.6mm;
+  /* la ligne de détail d'un document porte le même nom que la zone de dépôt
+     des imports (.dz, plus haut) : sans ceci, une remise par prestation
+     s'imprimait dans un cadre pointillé de 26 px */
+  border:0;border-radius:0;background:none;padding:0;text-align:left;cursor:auto;transition:none}
 .dv-tb .dzc{font-size:10px;color:#3f3f46;line-height:1.35;vertical-align:top}
 .dv-tb .dzc .vide{color:#a1a1aa}
 .dv-tb .an{font-size:9.5px;color:#71717a;margin-top:.6mm;font-style:italic}
@@ -1918,6 +1924,10 @@ body.en-connexion aside{display:none}
 .cnx-err{display:flex;gap:9px;align-items:flex-start;background:var(--crit-w);
   border:1px solid rgba(232,78,78,.34);border-radius:9px;padding:10px 12px;margin-bottom:16px;
   font-size:12.5px;line-height:1.45}
+.cnx-ok{display:flex;gap:9px;align-items:flex-start;background:var(--good-w);
+  border:1px solid rgba(12,163,12,.3);border-radius:9px;padding:10px 12px;margin-bottom:16px;
+  font-size:12.5px;line-height:1.45}
+.cnx-case{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--mu);margin:-4px 0 14px}
 .cnx-pied{font-size:11px;color:var(--mu);margin-top:18px;line-height:1.5;
   border-top:1px solid var(--bd);padding-top:13px}
 .cnx-pied a{color:var(--accent);cursor:pointer;font-weight:550}
@@ -1931,6 +1941,38 @@ body.en-connexion aside{display:none}
 .cnx-demo-g .btn b{font-weight:600;margin-right:6px}
 .cnx-demo-c{font-size:11.5px;color:var(--ink-2);background:var(--panel-3);
   border:1px solid var(--line);border-radius:8px;padding:7px 9px;margin-top:9px}
+/* --- lot 08 : son compte, le double facteur, l'équipe côté serveur --- */
+.moi-btn{display:flex;align-items:center;gap:9px;flex:1 1 auto;min-width:0;background:none;border:0;
+  padding:4px;margin:-4px;border-radius:10px;cursor:pointer;color:inherit;font:inherit;text-align:left}
+.moi-btn:hover{background:var(--panel)}
+.moi-btn:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.moi-btn .who{min-width:0}
+.a2f-carte{max-width:470px}
+.a2f-qr{display:flex;gap:16px;align-items:flex-start;margin:2px 0 12px}
+.a2f-qr .qrc{flex:none;border:1px solid var(--line);border-radius:10px;background:#fff}
+.a2f-et{margin:0;padding-left:18px;font-size:12px;line-height:1.5;color:var(--ink-2);display:grid;gap:6px}
+.a2f-cle{font-size:12px;margin:0 0 14px;color:var(--ink-2)}
+.a2f-cle summary{cursor:pointer;color:var(--accent);font-weight:550}
+.a2f-cle-v{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;letter-spacing:.06em;
+  background:var(--panel-3);border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin:8px 0 5px;
+  word-break:break-all;user-select:all}
+@media(max-width:520px){.a2f-qr{flex-direction:column;align-items:center}}
+.a2f-dans{max-width:440px}
+.cpt-g{display:grid;gap:13px;max-width:780px}
+.cpt-p{margin:0 0 11px;font-size:12.5px;line-height:1.5;color:var(--ink-2)}
+.cpt-a{display:flex;gap:7px;flex-wrap:wrap}
+.cpt-n{font-size:11.5px;line-height:1.5;margin:10px 0 0}
+.cpt-f{max-width:360px}
+.cpt-f .cpt-n{margin:-4px 0 10px}
+.cpt-retrait{display:flex;gap:7px;margin-top:10px;max-width:360px}
+.cpt-retrait .inp{flex:1}
+.lien-box{display:flex;gap:7px;margin-top:7px}
+.lien-box .inp{flex:1;min-width:0;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px}
+.eq-cases{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;margin-top:9px;color:var(--ink-2)}
+.eq-cases input{margin-right:5px;vertical-align:-2px}
+.eq-t .eq-a{white-space:nowrap}
+.eq-t .eq-a .btn{margin:2px 0}
+.eq-conf td{background:var(--crit-w);padding:0!important}
 /* Le bandeau qui dit d'où viennent les données. Il vit DANS le panneau
    principal — .app est une grille à deux colonnes, un frère de .main y
    prendrait une cellule et déplacerait tout l'écran. */
@@ -2102,6 +2144,10 @@ body.en-connexion aside{display:none}
   transform:translate(-50%,-50%) scale(.97);transition:transform .18s ease,opacity .18s ease}
 .over.mini.on{transform:translate(-50%,-50%) scale(1);opacity:1}
 .over.mini .ob{display:block;overflow:auto}
+.bc-four{display:flex;flex-wrap:wrap;gap:6px}
+.bc-tb .bc-q{width:78px;text-align:right}
+.bc-tb tr.bc-zero td{opacity:.7}
+.bc-tb tr.bc-zero td:nth-child(4){opacity:1}
 @media (max-width:900px){ .over.mini{width:96vw;max-height:92vh} }
 .over .oh{display:flex;align-items:center;gap:12px;padding:9px 18px;border-bottom:1px solid var(--line);flex:none}
 .over .oh h2{margin:0;font-size:14.5px;font-weight:670;letter-spacing:-.02em}
@@ -2540,6 +2586,13 @@ body.en-connexion aside{display:none}
 .qr-u li{margin-bottom:3px}
 .qr-w{padding:8px 10px;border-radius:8px;background:var(--warn-w);color:#8a6100;font-size:12px;line-height:1.45}
 .qr-w+.qr-w{margin-top:7px}
+/* lot 09 : où en est le téléphone, et le retrait motivé d'un cliché */
+.qr-etat{margin:9px 0 8px;padding:8px 10px;border-radius:8px;background:var(--bg);border:1px solid var(--line);font-size:12.5px}
+.pv-ret{width:236px}
+.pv-ret b{display:block;padding:7px 10px 2px;font-size:12px}
+.pv-ret .mu{display:block;padding:0 10px 6px;font-size:11px;line-height:1.35}
+.pv-ret .inp{margin:4px 8px;width:calc(100% - 16px)}
+.pv-ret button.g{color:var(--ink-3)}
 .qr-w a{color:inherit;text-decoration:underline;cursor:pointer;font-weight:650}
 :root[data-theme="dark"] .qr-w{color:#f6c65e}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .qr-w{color:#f6c65e}}
@@ -2558,6 +2611,10 @@ body.mode-prise #main{padding:0;max-width:none}
 .prise-v .e{font-size:40px}
 .prise-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
 .prise-g figure{position:relative;margin:0;border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+.prise-g figcaption{position:absolute;left:0;right:0;bottom:0;padding:3px 6px;font-size:11px;background:rgba(11,18,32,.62);color:#fff}
+.prise-g .pr-envoye figcaption{background:rgba(22,120,72,.8)}
+.prise-g .pr-echec figcaption,.prise-g .pr-erreur figcaption{background:rgba(180,40,40,.85)}
+.prise-pp{aspect-ratio:4/3;background:var(--bg)}
 .prise-g img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block}
 .prise-g button{position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;
   border:none;background:rgba(0,0,0,.55);color:#fff;font-size:13px;cursor:pointer}
@@ -2610,6 +2667,31 @@ body.mode-prise #main{padding:0;max-width:none}
 .bar{height:5px;border-radius:3px;background:var(--grid);overflow:hidden;min-width:64px}
 .bar i{display:block;height:100%;border-radius:3px}
 .ver{font-size:10px;color:var(--ink-3);text-align:center;padding:4px 0 2px;letter-spacing:.02em;font-variant-numeric:tabular-nums;opacity:.7}
+/* La copie d'essai (0.7.3) : une pastille, pas un bandeau (0.7.4 — le
+   bandeau sur toute la largeur masquait trop d'écran). Sous le nom du
+   logiciel, et sur la carte de connexion : toujours visible, jamais devant
+   le travail. */
+.essai-pastille{display:inline-flex;align-items:center;gap:5px;align-self:flex-start;height:18px;padding:0 8px;
+  border-radius:9px;font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;line-height:1;
+  white-space:nowrap;color:#2a1f00;background:repeating-linear-gradient(-45deg,#fab219 0 8px,#f6c443 8px 16px)}
+.logo .lg-t .essai-pastille{display:inline-flex;margin-top:4px;font-size:9.5px;color:#2a1f00;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.cnx-tete .essai-pastille{margin-bottom:10px}
+/* D'où viennent les données (0.7.4) : une ligne au pied de la barre de
+   gauche, et le détail à la demande — il occupait trois lignes en tête de
+   chaque écran. */
+.etat{position:relative;padding:6px 2px 0}
+.side .bandeau.srv{display:block;position:static;margin:0;padding:0;border:0;background:none;font-size:11px;
+  line-height:1.4;color:var(--ink-3)}
+.side .bandeau.srv .etat-l{all:unset;box-sizing:border-box;width:100%;cursor:pointer;display:flex;align-items:center;gap:6px;
+  padding:4px 6px;border-radius:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px;color:var(--ink-3)}
+.side .bandeau.srv .etat-l:hover,.side .bandeau.srv .etat-l[aria-expanded=true]{background:var(--line)}
+.side .bandeau.srv .etat-l:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.side .bandeau.srv .pt{color:var(--good);font-size:9px}
+.side .bandeau.srv .i{margin-left:auto;opacity:.6}
+.etat-pop{position:fixed;left:250px;bottom:58px;width:min(360px,calc(100vw - 270px));z-index:300;
+  padding:11px 13px;border-radius:11px;border:1px solid var(--line-2);background:var(--panel);color:var(--ink-2);
+  box-shadow:0 10px 30px rgba(0,0,0,.18);font-size:11.5px;line-height:1.5}
+.etat-pop b{color:var(--ink)}
 .majbar{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(24px);z-index:400;
   display:flex;align-items:center;gap:12px;padding:11px 12px 11px 17px;border-radius:14px;
   background:var(--ink);color:var(--bg);box-shadow:var(--sh-3);font-size:12.5px;font-weight:540;
@@ -2627,9 +2709,9 @@ body.mode-prise #main{padding:0;max-width:none}
 <div class="app">
   <aside class="side">
     <button class="logo" type="button" onclick="go('dash')"
-      title="Revenir à l’accueil" aria-label="PRAXIS — revenir à l’accueil">
-      <span class="m" aria-hidden="true">Px</span>
-      <span class="lg-t"><b>PRAXIS</b><span>Cabinet Dr Baroudi</span></span>
+      title="Revenir à l’accueil" aria-label="AISTO — revenir à l’accueil">
+      <span class="m" aria-hidden="true">A</span>
+      <span class="lg-t"><b>AISTO</b><span id="lg-cab">Centre Gemelia</span></span>
     </button>
     <div class="cmdrow">
       <button class="cmdk" onclick="openPal()" title="Rechercher un patient, un devis, un lot — ou lancer une action  (⌘K)">
@@ -2666,10 +2748,14 @@ body.mode-prise #main{padding:0;max-width:none}
       <a data-v="equipe"><span class="i">◎</span>Équipe &amp; droits</a>
       <a data-v="params"><span class="i">⚙</span>Paramètres</a>
     </nav>
+    <div class="etat" id="etat"></div>
     <div class="ver" id="ver" title="Version chargée dans ce navigateur"></div>
     <div class="side-foot">
-      <div class="av" id="avat">OB</div>
-      <div class="who" id="who">Dr O. Baroudi<small>Praticien</small></div>
+      <button class="moi-btn" type="button" id="moi-btn" onclick="go('compte')"
+        title="Mon compte — mot de passe, double facteur, sessions">
+        <div class="av" id="avat">OB</div>
+        <div class="who" id="who">Dr O. Baroudi<small>Praticien</small></div>
+      </button>
       <button class="rolebtn" id="btn-role" onclick="cycleRole()" title="Changer de rôle (voir les droits)">⇄</button>
       <button class="rolebtn" id="btn-sortir" onclick="srvDeconnecter()" title="Se déconnecter" style="display:none">⏻</button>
       <button class="rolebtn" onclick="toggleTheme()" title="Thème clair / sombre">◐</button>
@@ -2678,7 +2764,7 @@ body.mode-prise #main{padding:0;max-width:none}
   <main class="main" id="main"></main>
 </div>
 <div class="majbar" id="majbar">
-  <span>Une nouvelle version de PRAXIS est en ligne. Votre navigateur affiche encore l'ancienne.</span>
+  <span>Une nouvelle version d’AISTO est en ligne. Votre navigateur affiche encore l'ancienne.</span>
   <button class="btn s p" onclick="rechargerDur()">Recharger maintenant</button>
   <button class="majx" onclick="document.getElementById('majbar').classList.remove('on')" title="Plus tard">✕</button>
 </div>
@@ -2732,7 +2818,7 @@ body.mode-prise #main{padding:0;max-width:none}
 
 <script>
 /* ==========================================================================
-   PRAXIS — prototype. Données 100 % fictives, en mémoire. Aucun stockage.
+   AISTO — prototype. Données 100 % fictives, en mémoire. Aucun stockage.
    ========================================================================== */
 const EUR=n=>new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);
 const NUM=n=>new Intl.NumberFormat('fr-FR').format(n);
@@ -3292,7 +3378,7 @@ const PATIENTS=[
                adr:ADRS[i%ADRS.length], origine:ORIG_DEMO[i%ORIG_DEMO.length]}));
 const PERDUS=[1055,1056,1057,1058];   /* jeu de démonstration : patients volontairement perdus de vue */
 const pById=id=>PATIENTS.find(p=>p.id===id);
-const fn=p=>`${p.nom} ${p.prenom}`;
+const fn=p=>p?`${p.nom} ${p.prenom}`:'patient inconnu';
 const age=p=>p&&p.ddn?Math.floor(days(p.ddn,TODAY)/365.25):null;
 const ageTxt=p=>age(p)!==null?age(p)+' ans':'âge n.c.';
 const ini=p=>p.prenom[0]+p.nom[0];
@@ -5088,10 +5174,10 @@ let RULES=[
    consommé du stock. Le médecin soigne et pilote son activité, sans accès aux
    volumes ni à la traçabilité destructive. */
 const ROLES={
- admin:{l:'Administrateur',u:'Dr O. Baroudi',i:'OB',v:['dash','stats','envois','patients','actes','devis','encaiss','relances','stock','acces','equipe','params'],med:true,prix:true,compta:true,volumes:true,suppTrace:true,encaisse:true,caCabinet:true,retro:true},
- praticien:{l:'Médecin',u:'Dr A. Merlin',i:'AM',v:['dash','stats','envois','patients','actes','devis','encaiss','relances','stock','acces','equipe','params'],med:true,prix:true,compta:true,encaisse:true,caCabinet:false},
- assistante:{l:'Assistante',u:'L. Roche',i:'LR',v:['dash','stats','envois','patients','actes','devis','relances','stock','acces'],med:true,prix:true,compta:false,encaisse:true,caCabinet:false},
- secretariat:{l:'Secrétariat',u:'N. Faure',i:'NF',v:['dash','envois','patients','devis','relances','stock','acces'],med:false,prix:true,compta:false,encaisse:true,caCabinet:false},
+ admin:{l:'Administrateur',u:'Dr O. Baroudi',i:'OB',v:['dash','stats','envois','patients','actes','devis','encaiss','relances','stock','acces','equipe','params','compte'],med:true,prix:true,compta:true,volumes:true,suppTrace:true,encaisse:true,caCabinet:true,retro:true},
+ praticien:{l:'Médecin',u:'Dr A. Merlin',i:'AM',v:['dash','stats','envois','patients','actes','devis','encaiss','relances','stock','acces','equipe','params','compte'],med:true,prix:true,compta:true,encaisse:true,caCabinet:false},
+ assistante:{l:'Assistante',u:'L. Roche',i:'LR',v:['dash','stats','envois','patients','actes','devis','relances','stock','acces','compte'],med:true,prix:true,compta:false,encaisse:true,caCabinet:false},
+ secretariat:{l:'Secrétariat',u:'N. Faure',i:'NF',v:['dash','envois','patients','devis','relances','stock','acces','compte'],med:false,prix:true,compta:false,encaisse:true,caCabinet:false},
 };
 /* prix     = voir les montants d'un acte, d'un devis, d'une facture (métier : facturer, encaisser)
    encaisse = tenir la caisse d'une facture, depuis la fiche du patient :
@@ -5156,18 +5242,18 @@ const MF=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','o
 const ml=k=>MF[+k.slice(5,7)-1]+' '+k.slice(2,4);
 const serie=(n,fn2)=>{const o=[];for(let i=n-1;i>=0;i--){const d=new Date(TODAY.getFullYear(),TODAY.getMonth()-i,1);
  const k=mk(d.toISOString());o.push({k,label:ml(k),v:fn2(k)})}return o};
-const caMois=serie(6,k=>FACTURES.filter(f=>mk(f.date)===k).reduce((s,f)=>s+f.paye,0));
-const acMois=serie(6,k=>ACTES.filter(a=>mk(a.date)===k).length);
+let caMois=serie(6,k=>FACTURES.filter(f=>mk(f.date)===k).reduce((s,f)=>s+f.paye,0));
+let acMois=serie(6,k=>ACTES.filter(a=>mk(a.date)===k).length);
 const in30=d=>d<=TODAYS&&days(d,TODAY)<=30;
 const inP30=d=>days(d,TODAY)>30&&days(d,TODAY)<=60;
-const CAM=FACTURES.filter(f=>in30(f.date)).reduce((s,f)=>s+f.paye,0);
-const ENCJ=FACTURES.filter(f=>f.date===TODAYS&&f.statut==='ok').reduce((s,f)=>s+f.paye,0);
-const CAP=FACTURES.filter(f=>inP30(f.date)).reduce((s,f)=>s+f.paye,0);
-const ACTM=ACTES.filter(a=>in30(a.date)).length;
-const RESTE=FACTURES.reduce((s,f)=>s+rdu(f),0);
-const ATT=DEVIS.filter(d=>['envoye','relance1','relance2'].includes(d.statut));
-const MATT=ATT.reduce((s,d)=>s+d.montant,0);
-const ALERTES=STOCK.filter(s=>['bas','rupture','per'].includes(sst(s).k));
+let CAM=FACTURES.filter(f=>in30(f.date)).reduce((s,f)=>s+f.paye,0);
+let ENCJ=FACTURES.filter(f=>f.date===TODAYS&&f.statut==='ok').reduce((s,f)=>s+f.paye,0);
+let CAP=FACTURES.filter(f=>inP30(f.date)).reduce((s,f)=>s+f.paye,0);
+let ACTM=ACTES.filter(a=>in30(a.date)).length;
+let RESTE=FACTURES.reduce((s,f)=>s+rdu(f),0);
+let ATT=DEVIS.filter(d=>['envoye','relance1','relance2'].includes(d.statut));
+let MATT=ATT.reduce((s,d)=>s+d.montant,0);
+let ALERTES=STOCK.filter(s=>['bas','rupture','per'].includes(sst(s).k));
 /* « E-mail — Rappel doux », « SMS — Votre devis est toujours valable » : le
    libellé de l'étape porte son canal. On le lit une fois, ici. */
 const canalRegle=r=>!r?null:/sms/i.test(r.c)?'SMS':/mail/i.test(r.c)?'e-mail':null;
@@ -5181,7 +5267,7 @@ function fileRelances(){
  return o.sort((a,b)=>a.e.localeCompare(b.e));
 }
 /* ---------- Périodes personnalisables ---------- */
-const DATE_MIN=[...FACTURES.map(f=>f.date),...ACTES.map(a=>a.date),...DEVIS.map(d=>d.date)].sort()[0];
+let DATE_MIN=[...FACTURES.map(f=>f.date),...ACTES.map(a=>a.date),...DEVIS.map(d=>d.date)].sort()[0];
 const PRESET_L={jour:'Journée',semaine:'Semaine','7j':'7 jours','30j':'30 jours','90j':'90 jours',
  mois:'Mois',annee:'Année',tout:'Tout',perso:'Personnalisée',moisSel:'Mois choisi',anneeSel:'Année choisie'};
 /* ce que chaque raccourci recouvre au juste — l'infobulle le dit, la barre reste courte */
@@ -5300,6 +5386,35 @@ function periodBar(per,setter,info,presets,mois){
 }
 const RELS=fileRelances();
 const RDUE=RELS.filter(r=>r.du);
+/* Les agrégats suivent les données (correctif du 3 octobre 2026).
+   Ils étaient calculés UNE fois, au chargement de la page, sur les tableaux
+   de la démonstration : connecté, le tableau de bord montrait le chiffre
+   d'affaires, les devis en attente et les alertes de stock du cabinet
+   inventé — et s'arrêtait net sur une relance dont le patient n'existait pas
+   dans le vrai cabinet. Les épreuves ne le voyaient pas : elles partaient de
+   la démonstration, dont les chiffres sont les mêmes. On les recalcule à
+   chaque peinture : quelques centaines de lignes, une fraction de
+   milliseconde. */
+/* Un montant que le serveur n'a pas rendu — celui d'un confrère, pour un
+   praticien qui ne voit que les siens — compte pour zéro : il n'est pas à
+   lui, et un « NaN » ferait tomber les graphiques. */
+const nb0=v=>{ const n=+v; return Number.isFinite(n)?n:0 };
+function agregats(){
+ caMois=serie(6,k=>FACTURES.filter(f=>mk(f.date)===k).reduce((s,f)=>s+nb0(f.paye),0));
+ acMois=serie(6,k=>ACTES.filter(a=>mk(a.date)===k).length);
+ CAM=FACTURES.filter(f=>in30(f.date)).reduce((s,f)=>s+nb0(f.paye),0);
+ ENCJ=FACTURES.filter(f=>f.date===TODAYS&&f.statut==='ok').reduce((s,f)=>s+nb0(f.paye),0);
+ CAP=FACTURES.filter(f=>inP30(f.date)).reduce((s,f)=>s+nb0(f.paye),0);
+ ACTM=ACTES.filter(a=>in30(a.date)).length;
+ RESTE=FACTURES.reduce((s,f)=>s+nb0(rdu(f)),0);
+ ATT=DEVIS.filter(d=>['envoye','relance1','relance2'].includes(d.statut));
+ MATT=ATT.reduce((s,d)=>s+nb0(d.montant),0);
+ ALERTES=STOCK.filter(s=>['bas','rupture','per'].includes(sst(s).k));
+ DATE_MIN=[...FACTURES.map(f=>f.date),...ACTES.map(a=>a.date),...DEVIS.map(d=>d.date)]
+   .filter(Boolean).sort()[0]||TODAYS;
+ RELS.length=0; fileRelances().forEach(r=>RELS.push(r));
+ RDUE.length=0; RELS.filter(r=>r.du).forEach(r=>RDUE.push(r));
+}
 const CONS_SUPP=new Set();          /* consentements retirés de la liste */
 /* Un consentement éclairé signé pour un soin donné couvre les séances suivantes
    du même soin : on ne le redemande pas à chaque fois. La règle se coupe dans
@@ -5704,7 +5819,19 @@ const photoOmbre=x=>x?(x.s!==undefined?x.s:(x.kind==='apres'?8:0)):0;
 /* l'image simulée d'un cliché — le prototype ne porte aucune photo réelle */
 /* un cliché importé porte son image ; les autres restent des illustrations
    simulées — le prototype ne contient aucune photo réelle */
-const photoSrc=x=>!x?'':(x.src||ph(DFS(x.date), x.h, photoOmbre(x)));
+/* Lot 09 : une photo du serveur (« srv ») montre son image réelle — la
+   vignette par défaut, l'image en grand quand on la demande (« plein »).
+   Tant qu'elle n'est pas arrivée, un aplat neutre tient sa place, et la
+   demande part d'elle-même. Voir « LES PHOTOS AU SERVEUR ». */
+const photoSrc=(x,taille)=>{
+ if(!x) return '';
+ if(!x.srv) return x.src||ph(DFS(x.date), x.h, photoOmbre(x));
+ if(PH_ERR.has(x.id)) return PH_ILLISIBLE;
+ if(taille==='plein'){ const u=PH_PLEIN.get(x.id); if(u) return u; phChargerPlein(x.id) }
+ const v=PH_VIGN.get(x.id); if(v) return v;
+ phDemanderVignette(x);
+ return PH_ATTENTE;
+};
 /* ==========================================================================
    La galerie : les clichés d'abord, la comparaison ensuite
    --------------------------------------------------------------------------
@@ -5724,6 +5851,7 @@ let GAL={pid:null, sel:[],   /* jusqu'à quatre clichés, dans l'ordre choisi */
          mode:'cote', acte:'', ref:false, v:50,
          tri:-1,      /* -1 : du plus récent ; +1 : du plus ancien */
          lb:null,     /* le cliché agrandi, en diaporama */
+         retrait:null, autre:false,  /* le cliché qu'on retire, et le motif libre (lot 09) */
          z:1, px:0, py:0};  /* zoom et cadrage, communs à tous les clichés */
 /* Les présentations, et le nombre de clichés que chacune demande. Un modèle
    qui n'a pas son compte reste éteint : mieux vaut un bouton visiblement
@@ -5753,7 +5881,7 @@ function galPour(pid){
     travailler : le sens de lecture, le mode de rideau. Le zoom, lui,
     appartient aux clichés qu'on regardait : il repart à 1. */
  if(GAL.pid!==pid) GAL={pid, sel:[], tpl:null, mode:GAL.mode, acte:'', ref:false,
-   v:50, tri:GAL.tri, lb:null, z:1, px:0, py:0};
+   v:50, tri:GAL.tri, lb:null, retrait:null, autre:false, z:1, px:0, py:0};
  const vus=new Set(L.map(x=>x.id));
  GAL.sel=GAL.sel.filter(id=>vus.has(id));
  if(GAL.lb&&!vus.has(GAL.lb)) GAL.lb=null;
@@ -5941,7 +6069,7 @@ function qrMatrice(txte){
 }
 /* le dessin : un SVG, pas une image — il reste net à toutes les tailles et
    s'imprime sans se pixelliser */
-function qrSVG(txt, cote){
+function qrSVG(txt, cote, libelle){
  const r=qrMatrice(txt); if(!r) return '';
  const B=4, T=r.n+2*B, d=[];
  for(let y=0;y<r.n;y++){ let x=0;
@@ -5949,16 +6077,16 @@ function qrSVG(txt, cote){
      let w=0; while(x+w<r.n&&r.m[y][x+w]) w++;
      d.push(`M${x+B} ${y+B}h${w}v1h-${w}z`); x+=w } }
  return `<svg class="qrc" viewBox="0 0 ${T} ${T}" width="${cote}" height="${cote}"
-   role="img" aria-label="QR code — lien de prise de vue">
+   role="img" aria-label="${esc(libelle||'QR code — lien de prise de vue')}">
    <rect width="${T}" height="${T}" fill="#fff"/>
-   <path d="${d.join('')}" fill="#0b1220"/></svg>`;
+   <path d="${d.join('')}" fill="#0b1220" shape-rendering="crispEdges"/></svg>`;
 }
 
 /* ==========================================================================
    Prendre les photos avec le téléphone
    --------------------------------------------------------------------------
    Le poste du cabinet n'a pas de caméra utilisable ; le téléphone qu'on a
-   déjà en main en a une bonne. Le QR ouvre PRAXIS sur ce téléphone, en mode
+   déjà en main en a une bonne. Le QR ouvre AISTO sur ce téléphone, en mode
    prise de vue, sur le dossier et la séance qu'on regarde.
 
    Le jeton est à usage unique et périmé au bout d'un quart d'heure : un lien
@@ -5979,15 +6107,27 @@ function creerLienPhoto(pid, aid){
 }
 const lienPhotoValide=j=>{ const l=LIENS_PH.find(x=>x.jeton===j);
  return (l&&!l.utilise&&l.exp>Date.now())?l:null };
-/* l'adresse de PRAXIS, telle que le téléphone devra l'ouvrir */
+/* l'adresse d’AISTO, telle que le téléphone devra l'ouvrir */
 const adresseApp=()=>/^https?:/.test(location.protocol)
  ? location.origin+location.pathname : null;
 const lienPhotoURL=l=>{ const b=adresseApp(); return b?b+'#ph='+l.jeton:'#ph='+l.jeton };
 
 let QRV=null;   /* la fenêtre du QR en cours */
-function ouvrirQR(aid){
+async function ouvrirQR(aid){
  if(!GAL.pid){ toast('Ouvrez d’abord un dossier'); return }
- QRV={lien:creerLienPhoto(GAL.pid, aid||null)};
+ if(!CONNECTE()){ QRV={lien:creerLienPhoto(GAL.pid, aid||null)}; paint(); return }
+ /* Lot 09 : le lien vient du serveur. Le jeton n'existe qu'une fois, ici —
+    la base n'en garde que l'empreinte. */
+ const pid=GAL.pid;
+ QRV={attente:true}; paint();
+ let r; try{ r=await srvAppel('POST',`/api/patients/${pid}/prises`,{acte_id:aid||null}) }catch(e){ r={code:0} }
+ /* refermée pendant la préparation : le lien qu'on vient de créer ne doit
+    pas rester ouvert sans que personne ne le suive */
+ if(!QRV||!QRV.attente){ if(r.code===200) srvAppel('POST',`/api/prises/${r.corps.id}/fermer`,{}).catch(()=>{}); return }
+ if(r.code!==200){ QRV=null; paint(); toast(refusEcriture(r)); return }
+ QRV={serveur:true, deposees:0, plafond:r.corps.plafond, fermee:false, ouverte:false,
+      lien:{jeton:r.corps.jeton, id:r.corps.id, pid, aid:aid||null, exp:Date.parse(r.corps.expire_le)}};
+ phSuivre(r.corps.id, pid);
  paint();
 }
 function fermerQR(){ QRV=null; paint() }
@@ -6006,6 +6146,9 @@ function galImporter(aid){
  if(i){ i.value=''; i.click() }
 }
 function galFichiers(input){
+ /* Lot 09 : connecté, les photos partent au serveur, réduites. */
+ if(CONNECTE()){ const F=[...(input.files||[])], aid=galCible, pid=GAL.pid;
+   input.value=''; galCible=null; phImporter(pid, aid, F); return }
  const F=[...(input.files||[])].filter(f=>/^image\//.test(f.type));
  if(!F.length){ toast('Aucune image reconnue'); input.value=''; return }
  const a=galCible?ACTES.find(x=>String(x.id)===String(galCible)):null;
@@ -6030,9 +6173,17 @@ let galMenuId=null;
 function galMenu(id,e){ if(e) e.stopPropagation();
  galMenuId=galMenuId===id?null:id; paint() }
 function galRef(id){ const x=photoById(id); if(!x) return;
+ if(CONNECTE()){ galMenuId=null;
+   ecrire({methode:'PATCH', chemin:`/api/photos/${encodeURIComponent(id)}`, corps:{reference:!x.ref},
+     quoi:'la photo', appliquer:v=>{ x.ref=!!v.ref }})
+    .then(r=>{ paint(); if(r.ok) toast(x.ref?'Marqué comme photo de référence':'N’est plus une photo de référence') });
+   return }
  x.ref=!x.ref; galMenuId=null; paint();
  toast(x.ref?'Marqué comme photo de référence':'N’est plus une photo de référence') }
 function galSupprimer(id){ const i=PHOTOS.findIndex(x=>x.id===id); if(i<0) return;
+ /* Lot 09 : connecté, une photo ne s'efface pas — elle sort du dossier, avec
+    son motif. On demande lequel. */
+ if(CONNECTE()){ GAL.retrait=id; GAL.autre=false; galMenuId=id; paint(); return }
  const x=PHOTOS[i];
  if(!x.importe){ toast('Les clichés de démonstration ne s’effacent pas'); galMenuId=null; paint(); return }
  PHOTOS.splice(i,1); GAL.sel=GAL.sel.filter(y=>y!==id);
@@ -6056,6 +6207,241 @@ function galOrdre(){
    c'est la séance qu'on cherche, pas la zone */
 const galZones=pid=>[...new Set(photosPatient(pid).map(x=>x.zone).filter(Boolean))];
 function galTri(){ GAL.tri=-GAL.tri; paint() }
+
+/* ==========================================================================
+   LES PHOTOS AU SERVEUR — lot 09
+   --------------------------------------------------------------------------
+   Jusqu'ici la galerie montrait des illustrations simulées, et un cliché
+   importé ne vivait que dans ce navigateur. Connectée, elle montre les
+   photos du dossier telles que le serveur les garde.
+
+   CE QUI ARRIVE À L'ÉCRAN. La description de chaque photo vient avec
+   l'espace de travail ; le contenu, jamais. Les vignettes se demandent par
+   dossier — une ligne au journal pour le dossier —, la photo en grand quand
+   on l'agrandit — une ligne pour cette photo. Rien n'est écrit sur le disque
+   du poste : les images vivent dans la mémoire de la page, le temps qu'elle
+   est ouverte.
+
+   CE QUI PART. Une image redessinée à 2 560 pixels de côté au plus —
+   environ un mégaoctet, le choix du cabinet — et sa vignette. Redessiner
+   n'emporte rien de ce que l'appareil avait écrit dans le fichier : ni la
+   position GPS, ni le modèle, ni le numéro de série. Le serveur le retire
+   de toute façon : on ne confie pas une règle de confidentialité au seul
+   navigateur. Une seule chose est gardée de ces métadonnées, lue avant de
+   redessiner : l'heure de la prise de vue.
+   ========================================================================== */
+const PH_COTE=2560, PH_QUAL=0.86, PH_VCOTE=480, PH_VQUAL=0.8, PH_PAGE=120;
+const PH_VIGN=new Map(), PH_PLEIN=new Map(), PH_ERR=new Set(), PH_ENCOURS=new Set(),
+      PH_ECHEC=new Map(), PH_DOSSIERS=new Set();
+const PH_ATTENTE='data:image/svg+xml;utf8,'+encodeURIComponent(
+ '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 3"><rect width="4" height="3" fill="#dde2e8"/></svg>');
+const PH_ILLISIBLE='data:image/svg+xml;utf8,'+encodeURIComponent(
+ '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30"><rect width="40" height="30" fill="#f3e2e2"/>'
+ +'<path d="M15 10l10 10M25 10L15 20" stroke="#b44" stroke-width="2"/></svg>');
+/* Un échec ne se redemande pas à chaque repeint : on attend un peu. */
+const phRecent=cle=>{ const t=PH_ECHEC.get(cle); return !!t && Date.now()-t<30000 };
+let phRepeint=false;
+function phRepeindre(){
+ if(phRepeint) return; phRepeint=true;
+ requestAnimationFrame(()=>{ phRepeint=false; paint();
+   const o=document.getElementById('over');
+   if(o&&o.classList.contains('on')&&AS&&AS.ro) renderOver() });
+}
+
+/* ---- les vignettes : par dossier, ou par page de photothèque ---- */
+let phAttente=new Set(), phMinuteur=null;
+function phDemanderVignette(x){
+ if(!CONNECTE()||!x||PH_ENCOURS.has('v:'+x.id)||phRecent('v:'+x.id)) return;
+ phAttente.add(x.id);
+ if(!phMinuteur) phMinuteur=setTimeout(phVignettesEnAttente,0);
+}
+async function phVignettesEnAttente(){
+ phMinuteur=null;
+ const ids=[...phAttente].filter(id=>!PH_VIGN.has(id)&&!PH_ERR.has(id)); phAttente=new Set();
+ if(!ids.length) return;
+ /* Un seul dossier, pas encore venu : on demande ses photos — une ligne au
+    journal pour le dossier, et la liste du serveur fait foi. Plusieurs
+    dossiers (la photothèque) : les vignettes de la page, une ligne de liste. */
+ const pats=[...new Set(ids.map(id=>(photoById(id)||{}).patient))];
+ if(pats.length===1&&pats[0]!=null&&!PH_DOSSIERS.has(pats[0])){ await phChargerDossier(pats[0]); return }
+ ids.forEach(id=>PH_ENCOURS.add('v:'+id));
+ for(let i=0;i<ids.length;i+=80){
+   const lot=ids.slice(i,i+80);
+   let r; try{ r=await srvAppel('GET','/api/vignettes?ids='+encodeURIComponent(lot.join(','))) }catch(e){ r={code:0} }
+   if(r.code===200){
+     Object.entries(r.corps.vignettes||{}).forEach(([k,v])=>PH_VIGN.set(k,v));
+     (r.corps.erreurs||[]).forEach(k=>PH_ERR.add(k));
+   }
+   lot.forEach(id=>{ if(!PH_VIGN.has(id)) PH_ECHEC.set('v:'+id, Date.now()) });
+ }
+ ids.forEach(id=>PH_ENCOURS.delete('v:'+id));
+ phRepeindre();
+}
+/* Les photos d'un dossier, telles que le serveur les rend — leur liste et
+   leurs vignettes. « force » : on revient les chercher (le téléphone vient
+   d'en déposer). */
+async function phChargerDossier(pid, force){
+ if(!CONNECTE()) return;
+ const cle='d:'+pid;
+ if(PH_ENCOURS.has(cle)||(!force&&(PH_DOSSIERS.has(pid)||phRecent(cle)))) return;
+ PH_ENCOURS.add(cle);
+ let r; try{ r=await srvAppel('GET',`/api/patients/${pid}/photos`) }catch(e){ r={code:0} }
+ if(r.code===200){
+   for(let i=PHOTOS.length-1;i>=0;i--) if(PHOTOS[i].patient===pid) PHOTOS.splice(i,1);
+   (r.corps.photos||[]).forEach(x=>PHOTOS.push(x));
+   Object.entries(r.corps.vignettes||{}).forEach(([k,v])=>PH_VIGN.set(k,v));
+   (r.corps.erreurs||[]).forEach(k=>PH_ERR.add(k));
+   PH_DOSSIERS.add(pid);
+ } else PH_ECHEC.set(cle, Date.now());
+ PH_ENCOURS.delete(cle);
+ phRepeindre();
+}
+/* La photo en grand. Seize au plus en mémoire : au-delà, les plus anciennes
+   sont rendues. */
+async function phChargerPlein(id){
+ if(!CONNECTE()||PH_ENCOURS.has('p:'+id)||PH_ERR.has(id)||phRecent('p:'+id)) return;
+ PH_ENCOURS.add('p:'+id);
+ try{
+   const r=await fetch(SRV.base+'/api/photos/'+encodeURIComponent(id),{credentials:'include', cache:'no-store'});
+   if(r.ok){
+     PH_PLEIN.set(id, URL.createObjectURL(await r.blob()));
+     while(PH_PLEIN.size>16){ const [k,v]=PH_PLEIN.entries().next().value; URL.revokeObjectURL(v); PH_PLEIN.delete(k) }
+   } else {
+     PH_ECHEC.set('p:'+id, Date.now());
+     if(r.status===500){ PH_ERR.add(id); let j=null; try{ j=await r.json() }catch(_){}
+       toast((j&&j.erreur)||'Cette photo ne se relit pas.') }
+   }
+ }catch(e){ PH_ECHEC.set('p:'+id, Date.now()) }
+ PH_ENCOURS.delete('p:'+id);
+ phRepeindre();
+}
+
+/* ---- ce qui part : redessiner, réduire, dater ---- */
+/* L'heure de la prise de vue, lue dans l'Exif avant qu'on ne redessine
+   l'image (DateTimeOriginal, sinon DateTime). Rien d'autre n'en est lu. */
+async function phDateExif(f){
+ try{
+   const b=new DataView(await f.slice(0,262144).arrayBuffer());
+   if(b.byteLength<4||b.getUint16(0)!==0xFFD8) return null;
+   let i=2;
+   while(i+10<b.byteLength){
+     const m=b.getUint16(i), n=b.getUint16(i+2);
+     if((m&0xFF00)!==0xFF00||m===0xFFDA) return null;
+     if(m===0xFFE1&&b.getUint32(i+4)===0x45786966){
+       const t=i+10, le=b.getUint16(t)===0x4949;
+       const u16=o=>b.getUint16(t+o,le), u32=o=>b.getUint32(t+o,le);
+       const entree=(o,tag)=>{ const k=u16(o); for(let j=0;j<k;j++){ const e=o+2+j*12; if(u16(e)===tag) return e } return -1 };
+       const texte=e=>{ const n2=u32(e+4), o=n2>4?u32(e+8):e+8; let s='';
+         for(let j=0;j<n2-1&&t+o+j<b.byteLength;j++) s+=String.fromCharCode(b.getUint8(t+o+j)); return s };
+       const ifd0=u32(4); let s=null;
+       const pe=entree(ifd0,0x8769);
+       if(pe>=0){ const e=entree(u32(pe+8),0x9003); if(e>=0) s=texte(e) }
+       if(!s){ const e=entree(ifd0,0x0132); if(e>=0) s=texte(e) }
+       const d=/^(\d{4}):(\d{2}):(\d{2}) (\d{2}):(\d{2}):(\d{2})/.exec(s||'');
+       if(!d) return null;
+       const x=new Date(+d[1],+d[2]-1,+d[3],+d[4],+d[5],+d[6]);
+       return isNaN(x)?null:x;
+     }
+     i+=2+n;
+   }
+ }catch(e){}
+ return null;
+}
+/* Décoder l'image, en respectant le sens dans lequel elle a été prise. */
+async function phDecoder(f){
+ try{ return await createImageBitmap(f,{imageOrientation:'from-image'}) }catch(e){}
+ try{ return await createImageBitmap(f) }catch(e){}
+ const u=URL.createObjectURL(f);
+ try{ const im=new Image(); im.src=u; await im.decode(); return im }
+ catch(e){ return null }
+ finally{ setTimeout(()=>URL.revokeObjectURL(u),0) }
+}
+async function phPreparer(f){
+ const prise=await phDateExif(f);
+ const img=await phDecoder(f);
+ if(!img) throw new Error(/hei[cf]/i.test((f.type||'')+' '+(f.name||''))
+   ?'Ce navigateur ne lit pas le format HEIC : exportez la photo en JPEG, ou prenez-la par le QR code.'
+   :'Image illisible par ce navigateur.');
+ const W=img.width||img.naturalWidth, H=img.height||img.naturalHeight;
+ const dessin=(cote,q)=>{ const r=Math.min(1,cote/Math.max(W,H));
+   const w=Math.max(1,Math.round(W*r)), h=Math.max(1,Math.round(H*r));
+   const c=document.createElement('canvas'); c.width=w; c.height=h;
+   c.getContext('2d').drawImage(img,0,0,w,h);
+   const u=c.toDataURL('image/jpeg',q); return u.slice(u.indexOf(',')+1) };
+ const image=dessin(PH_COTE,PH_QUAL), vignette=dessin(PH_VCOTE,PH_VQUAL);
+ if(img.close) img.close();
+ return {image, vignette, prise_le:(prise||new Date(f.lastModified||Date.now())).toISOString()};
+}
+/* Importer depuis l'ordinateur, une photo après l'autre : chacune part par
+   la porte des écritures, et le serveur rend ce qu'il a gardé. */
+async function phImporter(pid, aid, fichiers){
+ const F=[...(fichiers||[])].filter(f=>/^image\//.test(f.type||'')||/\.(jpe?g|png|webp|heic|heif)$/i.test(f.name||''));
+ if(!F.length){ toast('Aucune image reconnue'); return }
+ const a=aid?ACTES.find(x=>String(x.id)===String(aid)):null;
+ let ok=0; const refus=[];
+ for(let i=0;i<F.length;i++){
+   toast(`Envoi des photos… ${i+1} / ${F.length}`);
+   let prep; try{ prep=await phPreparer(F[i]) }catch(e){ refus.push(e.message); continue }
+   const r=await ecrire({methode:'POST', chemin:`/api/patients/${pid}/photos`, quoi:'la photo',
+     corps:{...prep, acte_id:a?a.id:null, zone:a&&a.zones?(Object.keys(a.zones)[0]||null):null}});
+   if(r.ok&&r.valeur&&r.valeur.id){
+     PHOTOS.push(r.valeur); PH_VIGN.set(r.valeur.id,'data:image/jpeg;base64,'+prep.vignette); ok++ }
+   else if(r.message) refus.push(r.message);
+ }
+ paint();
+ toast(ok?`${ok} photo${ok>1?'s enregistrées':' enregistrée'} dans le dossier${a?' — séance du '+DF(a.date):''}${
+     refus.length?` · ${refus.length} refusée${refus.length>1?'s':''} : ${refus[0]}`:''}`
+   :(refus[0]||'Aucune photo enregistrée'));
+}
+/* Un sélecteur de fichiers éphémère, pour les écrans qui n'en portent pas. */
+function phChoisirFichiers(cb){
+ const i=document.createElement('input'); i.type='file'; i.accept='image/*'; i.multiple=true; i.hidden=true;
+ i.onchange=()=>{ const F=[...(i.files||[])]; i.remove(); cb(F) };
+ document.body.appendChild(i); i.click();
+}
+
+/* ---- la référence, le retrait ---- */
+function galRetirer(id, motif){
+ const x=photoById(id); if(!x) return;
+ const m=String(motif||'').trim();
+ if(m.length<3){ toast('Dites pourquoi la photo sort du dossier'); return }
+ ecrire({methode:'DELETE', chemin:`/api/photos/${encodeURIComponent(id)}`, corps:{motif:m}, quoi:'la photo',
+   appliquer:()=>{ const i=PHOTOS.findIndex(y=>y.id===id); if(i>=0) PHOTOS.splice(i,1);
+     GAL.sel=GAL.sel.filter(y=>y!==id); if(GAL.lb===id) GAL.lb=null; PH_VIGN.delete(id);
+     const u=PH_PLEIN.get(id); if(u){ URL.revokeObjectURL(u); PH_PLEIN.delete(id) } }})
+  .then(r=>{ GAL.retrait=null; galMenuId=null; paint();
+    if(r.ok) toast('Photo retirée du dossier — elle reste au registre, avec son motif') });
+}
+
+/* ---- la prise de vue au téléphone, côté poste ---- */
+/* Le poste suit le lien qu'il a affiché : toutes les trois secondes, tant
+   qu'il vit, et même si l'on a refermé la fenêtre du code. Ce qu'il reçoit
+   est un compte ; quand il bouge, il redemande les photos du dossier. */
+let PRISE_SUIVI=null;
+function phSuivre(id, pid){
+ if(PRISE_SUIVI&&PRISE_SUIVI.t) clearInterval(PRISE_SUIVI.t);
+ PRISE_SUIVI={id, pid, deposees:0, t:setInterval(phSuiviTour,3000)};
+}
+async function phSuiviTour(){
+ const s=PRISE_SUIVI; if(!s||!CONNECTE()) return;
+ let r; try{ r=await srvAppel('GET',`/api/prises/${s.id}`) }catch(e){ return }
+ if(PRISE_SUIVI!==s) return;
+ if(r.code!==200){ clearInterval(s.t); PRISE_SUIVI=null; return }
+ const c=r.corps, n=c.deposees||0;
+ let change=false;
+ if(QRV&&QRV.lien&&QRV.lien.id===s.id&&(QRV.deposees!==n||QRV.fermee!==!!c.fermee||QRV.ouverte!==!!c.ouverte)){
+   QRV.deposees=n; QRV.fermee=!!c.fermee; QRV.ouverte=!!c.ouverte; change=true }
+ if(n>s.deposees){ const k=n-s.deposees; s.deposees=n;
+   await phChargerDossier(s.pid,true);
+   toast(`${k} cliché${k>1?'s reçus':' reçu'} du téléphone`) }
+ if(c.fermee){ clearInterval(s.t); if(PRISE_SUIVI===s) PRISE_SUIVI=null }
+ if(change) paint();
+}
+async function fermerLienQR(){
+ const l=QRV&&QRV.lien; if(!l||!l.id) return fermerQR();
+ try{ await srvAppel('POST',`/api/prises/${l.id}/fermer`,{}) }catch(e){}
+ QRV=null; paint(); toast('Lien fermé : le téléphone ne peut plus rien envoyer');
+}
 /* ==========================================================================
    Zoom et cadrage
    --------------------------------------------------------------------------
@@ -6199,7 +6585,7 @@ const annivAge=(p,d)=>+d.slice(0,4)-+p.ddn.slice(0,4);
 
 /* --- modèles de messages, modifiables au back-office --- */
 let CABINET={
- nom:'Cabinet Dr Baroudi', raison:'SELARL GEMELIA', siret:'812 456 789 00021',
+ nom:'Centre Gemelia', raison:'SELARL GEMELIA', siret:'812 456 789 00021',
  tva:'FR32812456789', ape:'8622C', adresse:'12 avenue Victor Hugo, 75116 Paris',
  tel:'01 45 00 12 34', mail:'contact@cabinet-baroudi.fr', site:'www.cabinet-baroudi.fr',
  entete:'{{raison}} — {{cabinet}}\n{{adresse}}\nTél. {{tel}} · {{mail}}',
@@ -6986,7 +7372,7 @@ V.dash=()=>{
       <button class="btn s p" onclick="event.stopPropagation();composerRelance('${r.d.id}')">Relancer</button>`}));
  ALERTES.forEach(s=>todo.push({i:'▧',b:'var(--crit-w)',c:'#a52a2a',t:`${sst(s).l} — ${nomProduit(s)}`,
    d:`${s.q} ${s.u} en stock · seuil ${s.s} · ${s.f}`,
-   a:`<button class="btn s" onclick="toast('Bon de commande préparé pour ${esc(s.f)}')">Commander</button>`}));
+   a:`<button class="btn s" onclick="ouvrirBonCommande(${bcJ(fourDe(s))},${bcJ(s.ref)})">Commander</button>`}));
  consentKO().forEach(a=>todo.push({i:'✎',b:'var(--accent-wash)',c:'var(--accent-ink)',
    t:`Consentement manquant — ${fn(pById(a.patient))}`,d:`${a.nom} du ${DF(a.date)}`,
    a:`<button class="btn s" onclick="signDoc(${a.id},'CONS-${a.id}')">✎ Faire signer</button>`}));
@@ -7721,7 +8107,7 @@ let perEnv={k:'mois',from:'',to:''};
 const setPerEnv=x=>{perEnv=x;paint()};
 
 /* L'identité sous laquelle partent les documents. */
-const EXPEDITEUR={ nom:'Cabinet Dr Baroudi', mail:'contact@gemelia.fr',
+const EXPEDITEUR={ nom:'Centre Gemelia', mail:'contact@gemelia.fr',
   repondre:'contact@gemelia.fr', sms:'Dr Baroudi',
   relais:false,        /* relais d'envoi branché ? */
   demo:true,           /* à défaut, on fait vivre les états pour la démonstration */
@@ -8737,15 +9123,24 @@ function pAnniv(){
 }
 
 /* ---------- Photothèque ---------- */
+let phtN=PH_PAGE, phtCap=null, phtCapLe=0;
 function pPhotos(){
  const q=photoQ.toLowerCase();
  const L=PHOTOS.filter(x=>inPer(x.date,perP))
   .filter(x=>{const p=pById(x.patient); return !q||fn(p).toLowerCase().includes(q)})
   .sort((a,b)=>b.date.localeCompare(a.date));
- const parJour={}; L.forEach(x=>{(parJour[x.date]=parJour[x.date]||[]).push(x)});
+ /* Lot 09 : connectée, chaque vignette est une vraie photo, qui se demande
+    au serveur. On en montre une page à la fois — cent vingt —, pas des
+    milliers d'un coup. */
+ const tout=L.length, V=CONNECTE()?L.slice(0,phtN):L;
+ if(CONNECTE()&&role==='admin'&&Date.now()-phtCapLe>60000){ phtCapLe=Date.now();
+   srvAppel('GET','/api/photos/capacite').then(r=>{ if(r.code===200){ phtCap=r.corps; paint() } }).catch(()=>{}) }
+ const go_=n=>n>=1e9?(n/1e9).toFixed(1).replace('.',',')+' Go':Math.max(1,Math.round(n/1e6))+' Mo';
+ const parJour={}; V.forEach(x=>{(parJour[x.date]=parJour[x.date]||[]).push(x)});
  const jours=Object.keys(parJour).sort((a,b)=>b.localeCompare(a));
  return `<div class="head" style="margin-bottom:12px">
-   <div><h1>Photothèque</h1><p>${L.length} photo${L.length>1?'s':''} sur ${PHOTOS.length} · ${jours.length} date${jours.length>1?'s':''} de prise de vue</p></div>
+   <div><h1>Photothèque</h1><p>${L.length} photo${L.length>1?'s':''} sur ${PHOTOS.length} · ${jours.length} date${jours.length>1?'s':''} de prise de vue${
+     CONNECTE()&&role==='admin'&&phtCap?` · <span title="Ce que pèsent les photos, et la base qui les porte jusqu’à la bascule vers le stockage objet">${go_(phtCap.octets)} de photos · base ${go_(phtCap.base)}</span>`:''}</p></div>
    <div class="r"><button class="btn" onclick="pTab='photos';paint();setTimeout(()=>ouvrirQR(null),20)">📱 Importer par QR code</button></div></div>
  ${periodBar(perP,'setPerP',`${L.length} photo${L.length>1?'s':''}`,PRESETS_STD,1)}
  <div class="fbar">
@@ -8756,10 +9151,11 @@ function pPhotos(){
    <div class="phday-h"><b>${DF(j)}</b><span class="mu">${parJour[j].length} photo${parJour[j].length>1?'s':''} · ${[...new Set(parJour[j].map(x=>x.patient))].length} patient(s)</span></div>
    <div class="phgrid">${parJour[j].map(x=>{const p=pById(x.patient), a=ACTES.find(y=>y.id===x.acte);
      return `<div class="phc" onclick="openPatientPhotos(${x.patient})">
-      <img src="${ph2(x)}" alt="photo simulée">
+      <img src="${photoSrc(x)}" alt="${x.srv?'Photo du '+DF(x.date):'photo simulée'}">
       <div class="phi"><div class="nm">${esc(p.nom)} ${esc(p.prenom)}</div>
        <div class="mu">${a?esc(a.nom):''}${x.zone&&zoneDef(x.zone)?' · '+esc(zoneDef(x.zone).k):''}</div></div></div>`}).join('')}</div>
-  </div>`).join(''):'<div class="card"><div class="empty">Aucune photo sur cette période.</div></div>'}`;
+  </div>`).join(''):'<div class="card"><div class="empty">Aucune photo sur cette période.</div></div>'}
+ ${tout>V.length?`<div style="text-align:center;margin:14px 0"><button class="btn" onclick="phtN+=PH_PAGE;paint()">Afficher les ${Math.min(PH_PAGE,tout-V.length)} suivantes · ${tout-V.length} restantes</button></div>`:''}`;
 }
 function ph2(x){return ph(DF(x.date), x.h, photoOmbre(x))}
 function openPatientPhotos(id){pSel=id;pTab='photos';pView='liste';go('patients')}
@@ -9552,7 +9948,7 @@ function pDetail(p){
    /* ---- une vignette : sa case à cocher, son menu, sa date ---- */
    const vign=x=>{const r=galChoisi(x.id);
     return `<figure class="pv${r>=0?' sel':''}${x.ref?' ref':''}" data-id="${x.id}">
-      <img src="${photoSrc(x)}" alt="Cliché du ${DF(x.date)}${x.importe?'':' — illustration simulée'}"
+      <img src="${photoSrc(x)}" alt="Cliché du ${DF(x.date)}${x.importe||x.srv?'':' — illustration simulée'}"
         onclick="galAgrandir('${x.id}')" title="Agrandir — le diaporama part d’ici">
       <button class="pv-k${r>=0?' on':''}" title="${r>=0?'Retirer de la sélection':'Choisir pour une présentation'}"
         onclick="event.stopPropagation();galCocher('${x.id}')">${r>=0?r+1:''}</button>
@@ -9560,11 +9956,22 @@ function pDetail(p){
         onclick="galMenu('${x.id}',event)">⋮</button>
       ${x.ref?'<span class="pv-r" title="Photo de référence">★</span>':''}
       <figcaption>${DF(x.date)}</figcaption>
-      ${galMenuId===x.id?`<div class="pv-mn" onclick="event.stopPropagation()">
+      ${galMenuId===x.id&&GAL.retrait===x.id?`<div class="pv-mn pv-ret" onclick="event.stopPropagation()">
+        <b>Retirer du dossier — pourquoi ?</b>
+        <span class="mu">Elle ne s’affichera plus ; elle reste au registre, avec ce motif.</span>
+        ${['Photo floue ou ratée','Pas le bon dossier','Doublon'].map(m=>
+          `<button onclick="galRetirer('${x.id}','${m}')">${m}</button>`).join('')}
+        ${GAL.autre?`<input class="inp" id="pv-motif" maxlength="200" placeholder="Le motif, en quelques mots"
+            onkeydown="if(event.key==='Enter')galRetirer('${x.id}',this.value)">
+          <button class="d" onclick="galRetirer('${x.id}',document.getElementById('pv-motif').value)">Retirer</button>`
+          :`<button onclick="GAL.autre=true;paint();setTimeout(()=>{const e=document.getElementById('pv-motif');if(e)e.focus()},20)">Autre motif…</button>`}
+        <button class="g" onclick="GAL.retrait=null;GAL.autre=false;galMenuId=null;paint()">Annuler</button>
+      </div>`:galMenuId===x.id?`<div class="pv-mn" onclick="event.stopPropagation()">
         <button onclick="galRef('${x.id}')">${x.ref?'☆ Retirer des références':'★ Photo de référence'}</button>
         <button onclick="galCocher('${x.id}');galMenuId=null;paint()">${r>=0?'✕ Retirer de la sélection':'＋ Ajouter à la sélection'}</button>
         <button onclick="galAgrandir('${x.id}')">⤢ Agrandir</button>
-        ${x.importe?`<button class="d" onclick="galSupprimer('${x.id}')">🗑 Supprimer</button>`
+        ${CONNECTE()?`<button class="d" onclick="galSupprimer('${x.id}')">🗑 Retirer du dossier…</button>`
+          :x.importe?`<button class="d" onclick="galSupprimer('${x.id}')">🗑 Supprimer</button>`
           :'<button disabled title="Cliché de démonstration">🗑 Supprimer</button>'}
       </div>`:''}
      </figure>`};
@@ -9580,7 +9987,7 @@ function pDetail(p){
      </div></div>`;
 
    /* ---- le montage : ce que la présentation choisie met à l'écran ---- */
-   const cadre=(x,i2)=>`<figure class="gc"><div class="gz"><img src="${photoSrc(x)}"
+   const cadre=(x,i2)=>`<figure class="gc"><div class="gz"><img src="${photoSrc(x,'plein')}"
        style="${galTransform()}" alt="Cliché du ${DF(x.date)}"></div>
      <figcaption><span class="gr">${i2+1}</span><b>${DF(x.date)}</b>
        <small>${esc((photoActe(x)||{}).nom||'sans acte')}${x.zone?' · '+esc(zoneNom(x.zone)):''}</small></figcaption></figure>`;
@@ -9589,8 +9996,8 @@ function pDetail(p){
      if(GAL.tpl==='rideau'){ const [A,B]=SEL;
        return `<div class="rid">
          <div class="ba gz" id="ba">
-          <img src="${photoSrc(A)}" style="${galTransform()}" alt="Cliché du ${DF(A.date)}">
-          <img class="af" id="baA" src="${photoSrc(B)}" style="${galTransform()}" alt="Cliché du ${DF(B.date)}">
+          <img src="${photoSrc(A,'plein')}" style="${galTransform()}" alt="Cliché du ${DF(A.date)}">
+          <img class="af" id="baA" src="${photoSrc(B,'plein')}" style="${galTransform()}" alt="Cliché du ${DF(B.date)}">
           <div class="hd" id="baH" style="left:${GAL.v}%"></div>
           <div class="tg l">${DF(A.date)}</div><div class="tg r">${DF(B.date)}</div></div>
          <input type="range" min="0" max="100" value="${GAL.v}" class="gwipe"
@@ -9683,7 +10090,34 @@ function pDetail(p){
       <span class="mu" style="font-size:11.5px">${TOUT.length?'':'Les clichés se prennent depuis la séance — ou s’importent ici.'}</span>
       <div style="margin-top:11px"><button class="btn s p" onclick="galImporter(null)">＋ Importer des photos</button></div></div>`}
 
-   ${QRV?(()=>{const l=QRV.lien, u=lienPhotoURL(l), a2=l.aid?ACTES.find(x=>String(x.id)===String(l.aid)):null;
+   ${QRV&&QRV.attente?`<div class="plb" onclick="fermerQR()"><div class="qrbox" onclick="event.stopPropagation()">
+       <div class="qr-h"><b>Prise de vue au téléphone</b><button class="btn xs g" onclick="fermerQR()">✕</button></div>
+       <div class="qr-b"><div class="qr-t"><p class="mu">Préparation d’un lien à usage unique…</p></div></div></div></div>`
+   :QRV&&QRV.serveur?(()=>{const l=QRV.lien, u=lienPhotoURL(l), a2=l.aid?ACTES.find(x=>String(x.id)===String(l.aid)):null;
+     /* Lot 09 : le lien du serveur. Le poste dit où en est le téléphone. */
+     const etat=QRV.fermee?(QRV.deposees?`Lien fermé — ${QRV.deposees} cliché${QRV.deposees>1?'s reçus':' reçu'}.`:'Lien fermé.')
+       :QRV.deposees?`<b>${QRV.deposees} cliché${QRV.deposees>1?'s reçus':' reçu'}</b> — ils sont déjà dans le dossier.`
+       :QRV.ouverte?'Téléphone connecté : en attente des clichés…':'En attente du téléphone…';
+     return `<div class="plb" onclick="fermerQR()">
+       <div class="qrbox" onclick="event.stopPropagation()">
+         <div class="qr-h"><b>Prise de vue au téléphone</b>
+           <button class="btn xs g" onclick="fermerQR()" title="Fermer cette fenêtre — le lien reste valable jusqu’à son terme">✕</button></div>
+         <div class="qr-b">
+           <div class="qr-i">${QRV.fermee?'':qrSVG(u,208)}</div>
+           <div class="qr-t">
+             <p><b>Photographiez ce code</b> avec l’appareil photo du téléphone :
+               AISTO s’y ouvre en mode prise de vue${a2?`, sur la séance du ${DF(a2.date)}`:', sans séance'}.</p>
+             <div class="qr-etat" id="qr-etat">${etat}</div>
+             <ul class="qr-u">
+               <li>Valable <b>${QR_MINUTES} minutes</b>, pour <b>un seul téléphone</b> : le premier qui l’ouvre.</li>
+               <li>Le téléphone ne peut que <b>déposer</b> : il ne voit rien du dossier, et rien ne reste sur lui.</li>
+               <li>Le lien ne porte <b>ni nom ni numéro de dossier</b>.</li>
+             </ul>
+             <div class="qr-l"><span class="mono">${esc(u)}</span>
+               <button class="btn xs" onclick="copierLien()">Copier</button></div>
+             ${QRV.fermee?'':`<div style="margin-top:9px"><button class="btn xs" onclick="fermerLienQR()">Fermer le lien</button></div>`}
+           </div></div></div></div>`})()
+   :QRV?(()=>{const l=QRV.lien, u=lienPhotoURL(l), a2=l.aid?ACTES.find(x=>String(x.id)===String(l.aid)):null;
      const net=!!adresseApp();
      return `<div class="plb" onclick="fermerQR()">
        <div class="qrbox" onclick="event.stopPropagation()">
@@ -9693,7 +10127,7 @@ function pDetail(p){
            <div class="qr-i">${qrSVG(u,208)}</div>
            <div class="qr-t">
              <p><b>Photographiez ce code</b> avec l’appareil photo du téléphone :
-               PRAXIS s’y ouvre en mode prise de vue${a2?`, sur la séance du ${DF(a2.date)}`:', sans séance'}.</p>
+               AISTO s’y ouvre en mode prise de vue${a2?`, sur la séance du ${DF(a2.date)}`:', sans séance'}.</p>
              <div class="qr-l"><span class="mono">${esc(u)}</span>
                <button class="btn xs" onclick="copierLien()">Copier</button></div>
              <ul class="qr-u">
@@ -9702,7 +10136,7 @@ function pDetail(p){
                <li>Le lien ne porte <b>ni nom ni numéro de dossier</b> — une adresse se recopie et se photographie.</li>
              </ul>
              ${net?'':`<div class="qr-w">⚠ Cette page est ouverte depuis un fichier local : le téléphone ne pourra pas
-               atteindre cette adresse. Le code deviendra utilisable dès que PRAXIS sera servi sur le réseau du cabinet.</div>`}
+               atteindre cette adresse. Le code deviendra utilisable dès qu’AISTO sera servi sur le réseau du cabinet.</div>`}
              <div class="qr-w b">⚠ <b>Relais de transfert non branché.</b> Le lien s’ouvre bien sur le téléphone et la
                prise de vue fonctionne, mais les clichés ne remontent pas encore jusqu’à ce poste : cela demande le
                serveur du cabinet. En attendant, <a onclick="fermerQR();galImporter(${l.aid?`'${l.aid}'`:'null'})">importez les fichiers depuis cet ordinateur</a>.</div>
@@ -9711,7 +10145,7 @@ function pDetail(p){
    ${GAL.lb?(()=>{const x=photoById(GAL.lb), L=galOrdre(), i=L.findIndex(y=>y.id===GAL.lb);
      return `<div class="plb" onclick="galFermerLb()">
        <div class="plb-b" onclick="event.stopPropagation()">
-         <img src="${photoSrc(x)}" alt="Cliché du ${DF(x.date)}">
+         <img src="${photoSrc(x,'plein')}" alt="Cliché du ${DF(x.date)}">
          <div class="plb-h"><b>${DF(x.date)}</b>
            <span class="mu">${esc((photoActe(x)||{}).nom||'sans séance')}${x.zone?' · '+esc(zoneNom(x.zone)):''}</span>
            <span class="mu" style="margin-left:auto">${i+1} / ${L.length}</span>
@@ -9721,7 +10155,8 @@ function pDetail(p){
              galChoisi(x.id)>=0?'✓ Sélectionné':'Sélectionner'}</button>
            <button class="btn xs g" onclick="galFermerLb()">✕</button></div></div></div>`})():''}
 
-   <div class="mu" style="font-size:11px;padding:10px 2px 0">Illustrations simulées — aucune photo réelle dans ce prototype, hormis celles que vous importez.</div>`;
+   ${CONNECTE()?`<div class="mu" style="font-size:11px;padding:10px 2px 0">Les photos sont gardées par le serveur du cabinet, chiffrées ; chaque consultation s’inscrit au journal des accès. Elles ne s’effacent pas : une photo retirée reste au registre, avec son motif.</div>`
+    :`<div class="mu" style="font-size:11px;padding:10px 2px 0">Illustrations simulées — aucune photo réelle dans ce prototype, hormis celles que vous importez.</div>`}`;
   },
 
   docs:()=>{
@@ -10906,7 +11341,7 @@ function eClotures(){
     <td class="num">${EUR(+c.total_perpetuel)}</td>
     <td>${h?`<span class="bdg b-good" title="${esc(h.prestataire)} · jeton n° ${esc(String(h.serie))}">✓ ${esc(DTS(minuteLocale(h.heure)))}</span>`
             :'<span class="bdg b-warn" title="Le prestataire d’horodatage n’a pas encore répondu : le serveur réessaie tout seul">en attente</span>'}</td>
-    <td class="num">${h?`<button class="btn xs" onclick="telechargerJeton(${c.id})" title="Le jeton tel que le prestataire l’a rendu : il se vérifie avec OpenSSL, sans PRAXIS">Jeton</button>`:''}</td></tr>`;
+    <td class="num">${h?`<button class="btn xs" onclick="telechargerJeton(${c.id})" title="Le jeton tel que le prestataire l’a rendu : il se vérifie avec OpenSSL, sans AISTO">Jeton</button>`:''}</td></tr>`;
  };
  return tete+`<div class="grid g4" style="margin-bottom:14px">
    ${tuile('Dernière journée close', J.length?DF(J[0].fin):'—', J.length?`${J.length} jour${J.length>1?'s':''} clos`:'aucune activité close', J.length?'up':'')}
@@ -10922,7 +11357,7 @@ function eClotures(){
     ${vf.evenements&&!vf.evenements.intacte?`<div>journal technique : ${esc(vf.evenements.rupture.raisons.join(' ; '))}</div>`:''}</div></div>`:''}
   ${!dv.horodateur&&CLOT.evts.length?`<div class="tip" style="margin-bottom:13px"><span class="e">⏳</span><div><b>Aucun prestataire d’horodatage n’est configuré sur le serveur.</b>
     Les clôtures sont faites et scellées, mais aucun tiers ne les date encore : c’est ce qui empêche qui possède la base de les refaire.
-    Voir PRAXIS_HORODATAGE_URL dans le document du lot 06.</div></div>`:''}
+    Voir AISTO_HORODATAGE_URL dans le document du lot 06.</div></div>`:''}
   <div class="card" style="margin-bottom:13px"><div class="h"><h2>Clôtures</h2><span class="s">${L.length} · de la plus récente à la plus ancienne</span></div>
    <div class="tw"><table><thead><tr><th>N°</th>${plusieurs?'<th>Caisse</th>':''}<th>Nature</th><th>Période</th>
      <th class="num" title="Écritures du journal couvertes">Écr.</th><th class="num">Chiffre d’affaires TTC</th><th class="num">Encaissé</th>
@@ -11924,7 +12359,7 @@ function exportMvt(){
  const L=[['Date','Type','Référence','Produit','Lot','Péremption','Quantité','Pour le compte de','Emprunté à','Manquant','Motif','Saisi par']];
  M.forEach(m=>L.push([String(m.ts||''),(MVT_T[m.t]||{}).l||m.t,m.ref||'',m.nom||'',m.lot||'',m.per||'',
    Math.max(0,+m.q||0),m.qui?partNom(m.qui):'',(m.emprunts||[]).join(' / '),m.manque||0,m.note||'',m.par||'']));
- csvTelecharger(`praxis-mouvements-${TODAYS}.csv`,L);
+ csvTelecharger(`aisto-mouvements-${TODAYS}.csv`,L);
  toast(`${M.length} mouvement${M.length>1?'s':''} exporté${M.length>1?'s':''}`);
 }
 
@@ -12082,7 +12517,7 @@ function exportCns(){
  /* Un export filtré qui porte le même nom qu'un export complet finit par être
     relu pour l'autre. Le nom dit ce que le fichier contient. */
  const part=cnsRefF?'-'+nomFichier(cnsNom(cnsRefF)):(cnsQ?'-'+nomFichier(cnsQ):(cnsCat?'-'+nomFichier(cnsCat):''));
- csvTelecharger(`praxis-consommation${part}-${TODAYS}.csv`,L);
+ csvTelecharger(`aisto-consommation${part}-${TODAYS}.csv`,L);
  toast(`${M.length} sortie${M.length>1?'s':''} exportée${M.length>1?'s':''}`
    +(cnsSansFiltre()?'':' · filtres appliqués'));
 }
@@ -12280,6 +12715,225 @@ function vueConso(){
  </div>`}`}`;
 }
 
+/* ==========================================================================
+   Le bon de commande
+   --------------------------------------------------------------------------
+   Le bouton existait ; il affichait « Bon de commande généré » et rien
+   d'autre. Il prépare désormais la pièce : un bon par fournisseur, rempli de
+   ce qui est passé sous le seuil — de quoi revenir à deux fois le seuil,
+   compté sur le stock UTILISABLE : une boîte périmée ne compte pas, elle part
+   à la destruction. Tout se corrige avant d'imprimer, et rien n'écrit au
+   stock : c'est la réception qui fera entrer les boîtes, lot par lot.
+
+   Ce que le fournisseur doit savoir de nos règles est écrit sur le bon : la
+   durée de vie exigée à la livraison (Paramètres → Péremption). Un lot trop
+   court serait refusé à la porte ; mieux vaut qu'il le sache avant
+   d'expédier.
+
+   Ses coordonnées — adresse, e-mail, notre n° de client — se gardent avec
+   les réglages, fournisseur par fournisseur : on ne les retape pas.
+   ========================================================================== */
+let FOURNISSEURS={};
+let BC=null;
+const bcJ=v=>JSON.stringify(v).replace(/"/g,'&quot;');
+const fourDe=x=>String((x&&x.f)||'').trim();
+const sousSeuil=x=>stockUtile(x)<(+x.s||0);
+/* de quoi revenir à deux fois le seuil, sur le stock utilisable */
+const aCommander=x=>Math.max(0, 2*Math.max(0,+x.s||0)-stockUtile(x));
+const bcInfo=f=>(f&&FOURNISSEURS[f]&&typeof FOURNISSEURS[f]==='object')?FOURNISSEURS[f]:{};
+const bcFiche=f=>(FOURNISSEURS[f]&&typeof FOURNISSEURS[f]==='object')?FOURNISSEURS[f]:(FOURNISSEURS[f]={});
+/* les fournisseurs du stock, celui qui a le plus à recommander en tête */
+function bcFournisseurs(){
+ const m=new Map();
+ STOCK.forEach(x=>{ const f=fourDe(x); if(!m.has(f)) m.set(f,[]); m.get(f).push(x) });
+ return [...m.entries()].map(([f,L])=>({f, L, n:L.filter(sousSeuil).length}))
+   .sort((a,b)=>(b.n-a.n)||((a.f?0:1)-(b.f?0:1))||a.f.localeCompare(b.f,'fr'));
+}
+const bcQ=ref=>Math.max(0,Math.floor(+((BC&&BC.q[ref])||0)));
+function bcLignes(){
+ if(!BC) return [];
+ const o=bcFournisseurs().find(z=>z.f===BC.f);
+ return o?o.L.filter(x=>bcQ(x.ref)>0):[];
+}
+function bcTotaux(){ const L=bcLignes();
+ return {n:L.length, u:L.reduce((t,x)=>t+bcQ(x.ref),0), m:L.reduce((t,x)=>t+bcQ(x.ref)*(+x.pu||0),0)} }
+
+/* f : un fournisseur à ouvrir ; ref : une référence à commander de toute façon
+   (le « Commander » d'une alerte du tableau de bord) */
+function ouvrirBonCommande(f,ref){
+ const F=bcFournisseurs();
+ if(!F.length){ toast('Le stock n’a encore aucune référence : rien à commander'); return }
+ const x=ref?STOCK.find(y=>y.ref===ref):null;
+ const voulu=f==null?null:String(f).trim();
+ const cible=x?fourDe(x):(voulu!==null&&F.some(o=>o.f===voulu))?voulu:F[0].f;
+ const q={};
+ STOCK.forEach(y=>{ if(sousSeuil(y)) q[y.ref]=aCommander(y) });
+ /* une alerte de péremption n'est pas sous le seuil : on propose un seuil */
+ if(x&&!q[x.ref]) q[x.ref]=aCommander(x)||Math.max(1,+x.s||1);
+ BC={f:cible, q, n:null, cree:null, livraison:'', adresse:CABINET.adresse||'',
+     par:monPrat()||'', note:''};
+ renderBC();
+}
+function fermerBC(){ BC=null; closeAll() }
+function bcFour(f){ if(!BC) return; BC.f=f; BC.n=null; renderBC() }
+function bcInfoSet(k,v){ if(!BC||!BC.f) return; bcFiche(BC.f)[k]=String(v||'').trim(); cfgPlanifier() }
+/* une quantité : on ne repeint pas la fenêtre, la saisie perdrait sa place */
+function bcSet(ref,v){
+ if(!BC) return;
+ BC.q[ref]=Math.max(0,Math.floor(+v||0));
+ const x=STOCK.find(y=>y.ref===ref), q=bcQ(ref);
+ const e=[...document.querySelectorAll('#overb .bc-q')].find(i=>i.dataset.ref===ref);
+ if(e){ const r=e.closest('tr'); r.classList.toggle('bc-zero',!q);
+   const m=r.querySelector('.bc-m'); if(m&&x) m.innerHTML=q?EUR(q*(+x.pu||0)):'<span class="mu">—</span>' }
+ bcPied();
+}
+function bcPied(){
+ const t=bcTotaux(), prix=CAN('prix');
+ document.getElementById('overf').innerHTML=`
+  <span class="mu bc-tot" style="font-size:11.5px">${t.n
+   ?`${t.n} référence${t.n>1?'s':''} · ${NUM(t.u)} unité${t.u>1?'s':''}${prix?` · ${EUR(t.m)} aux prix enregistrés`:''}`
+   :'Indiquez au moins une quantité.'}</span>
+  <div style="margin-left:auto;display:flex;gap:8px">
+   <button class="btn" onclick="fermerBC()">Annuler</button>
+   <button class="btn p" id="bcVoir" ${t.n?'':'disabled'} onclick="bcVoir()">Voir le bon de commande</button></div>`;
+}
+function renderBC(){
+ if(!BC) return;
+ const F=bcFournisseurs(), o=F.find(z=>z.f===BC.f)||F[0];
+ if(!o){ fermerBC(); return }
+ if(o.f!==BC.f) BC.f=o.f;
+ const prix=CAN('prix'), I=bcInfo(BC.f);
+ const L=o.L.slice().sort((a,b)=>(sousSeuil(b)-sousSeuil(a))||nomProduit(a).localeCompare(nomProduit(b),'fr'));
+ document.getElementById('overh').innerHTML=`
+  <button class="btn g s" onclick="fermerBC()">✕</button>
+  <div><h2>Bon de commande</h2><div class="mu" style="font-size:11.5px">
+   Un bon par fournisseur. Ce qui est sous le seuil est déjà rempli : de quoi revenir à deux fois le seuil.</div></div>`;
+ document.getElementById('overb').innerHTML=`
+  <div class="bc-four">${F.map(z=>`<button class="chip ${z.f===BC.f?'on':''}" data-f="${esc(z.f)}" onclick="bcFour(${bcJ(z.f)})">${
+     esc(z.f||'Sans fournisseur')}${z.n?` <span class="bdg b-crit" title="sous le seuil">${z.n}</span>`:` <span class="mu">${z.L.length}</span>`}</button>`).join('')}</div>
+  ${BC.f?`<div class="cadd" style="grid-template-columns:1.5fr 1fr 1fr;margin:11px 0 4px">
+    <div class="fld" style="margin:0"><label>Adresse du fournisseur</label>
+     <input class="inp" id="bc-adr" value="${esc(I.adresse||'')}" placeholder="rue, code postal, ville" oninput="bcInfoSet('adresse',this.value)"></div>
+    <div class="fld" style="margin:0"><label>E-mail des commandes</label>
+     <input class="inp" id="bc-mail" type="email" value="${esc(I.mail||'')}" placeholder="commandes@…" oninput="bcInfoSet('mail',this.value)"></div>
+    <div class="fld" style="margin:0"><label>Notre n° de client</label>
+     <input class="inp mono" id="bc-client" value="${esc(I.client||'')}" oninput="bcInfoSet('client',this.value)"></div></div>
+   <div class="mu" style="font-size:11px;margin-bottom:11px">Gardés avec vos réglages : le prochain bon pour ${esc(BC.f)} les reprendra.${
+     I.derniere&&I.derniere.n?` Dernier bon établi : <b class="mono">${esc(I.derniere.n)}</b>, le ${DF(I.derniere.date)}.`:''}</div>`
+  :`<div class="tip wa" style="margin:11px 0"><span class="e">⚠</span><div>Ces références n’ont pas de fournisseur.
+    Renseignez-le dans la référence (⚙ dans la liste du stock) : le bon sortira à son nom.</div></div>`}
+  <div class="tw"><table class="bc-tb">
+   <thead><tr><th>Produit</th><th class="num">Stock <span class="mu" style="font-weight:500">/ seuil</span></th>
+    <th class="num" title="De quoi revenir à deux fois le seuil">Suggéré</th><th class="num">À commander</th>
+    ${prix?'<th class="num">P.U.</th><th class="num">Montant</th>':''}</tr></thead>
+   <tbody>${L.map(x=>{ const q=bcQ(x.ref), u=stockUtile(x), sug=aCommander(x), per=stockPerime(x);
+    return `<tr class="${q?'':'bc-zero'}" data-ref="${esc(x.ref)}"><td><b>${esc(nomProduit(x))}</b>
+      <div class="mu mono" style="font-size:11px">${esc(x.ref)}${x.gtin?' · GTIN '+esc(x.gtin):''}${(x.n&&x.n!==nomProduit(x))?' · '+esc(x.n):''}</div></td>
+     <td class="num">${u} <span class="mu" style="font-size:11px">/ ${+x.s||0}</span>${
+       sousSeuil(x)?`<div>${bdg('b-crit',u?'sous le seuil':'rupture')}</div>`:''}${
+       per?`<div class="mu" style="font-size:10px;color:var(--crit)">+ ${per} périmé${per>1?'s':''}, non compté${per>1?'s':''}</div>`:''}</td>
+     <td class="num bc-sug">${sug||'<span class="mu">—</span>'}</td>
+     <td class="num"><input class="inp bc-q" type="number" min="0" step="1" inputmode="numeric" value="${q||''}" placeholder="0"
+       data-ref="${esc(x.ref)}" aria-label="Quantité à commander — ${esc(nomProduit(x))}" oninput="bcSet(${bcJ(x.ref)},this.value)"></td>
+     ${prix?`<td class="num">${EUR(+x.pu||0)}</td><td class="num bc-m">${q?EUR(q*(+x.pu||0)):'<span class="mu">—</span>'}</td>`:''}</tr>`}).join('')}
+   </tbody></table></div>
+  <div class="cadd" style="grid-template-columns:1fr 1.7fr 1fr;margin-top:13px">
+   <div class="fld" style="margin:0"><label>Livraison souhaitée <span class="mu">— facultatif</span></label>
+    <input class="inp" id="bc-liv" type="date" value="${esc(BC.livraison)}" onchange="BC.livraison=this.value"></div>
+   <div class="fld" style="margin:0"><label>Adresse de livraison</label>
+    <input class="inp" id="bc-adrliv" value="${esc(BC.adresse)}" oninput="BC.adresse=this.value"></div>
+   <div class="fld" style="margin:0"><label>Commandé par</label>
+    <input class="inp" id="bc-par" list="bcpar" value="${esc(BC.par)}" oninput="BC.par=this.value">
+    <datalist id="bcpar">${PRATICIENS.map(k=>`<option value="${esc(k)}">`).join('')}</datalist></div></div>
+  <div class="fld" style="margin:10px 0 0"><label>Note au fournisseur <span class="mu">— facultatif</span></label>
+   <input class="inp" id="bc-note" value="${esc(BC.note)}" oninput="BC.note=this.value" placeholder="créneau de livraison, remise convenue…"></div>`;
+ bcPied();
+ ouvrirModale();
+}
+/* Le numéro dit le jour et l'heure : deux postes du cabinet n'ont pas de
+   compteur commun, et deux bons ne doivent pas porter le même numéro. */
+const BC_PRIS=new Set();     /* les numéros donnés depuis l'ouverture, fournisseur ou non */
+function bcNumero(){
+ const h=HORO();
+ const base='BC-'+h.slice(0,10).replace(/-/g,'')+'-'+h.slice(11,16).replace(':','');
+ const pris=new Set([...BC_PRIS, ...Object.values(FOURNISSEURS).map(o=>o&&o.derniere&&o.derniere.n).filter(Boolean)]);
+ let n=base, i=2; while(pris.has(n)) n=base+'-'+(i++);
+ BC_PRIS.add(n);
+ return n;
+}
+function bcVoir(){
+ if(!BC) return;
+ const L=bcLignes(); if(!L.length){ toast('Indiquez au moins une quantité'); return }
+ if(!BC.n){ BC.n=bcNumero(); BC.cree=HORO() }
+ const B={...BC, lignes:L.map(x=>({ref:x.ref, nom:nomProduit(x), n:x.n||'', gtin:x.gtin||'',
+   u:x.u||'', q:bcQ(x.ref), pu:+x.pu||0}))};
+ if(B.f){ bcFiche(B.f).derniere={n:B.n, date:B.cree.slice(0,10), lignes:B.lignes.map(l=>[l.ref,l.q])}; cfgPlanifier() }
+ fermerEcrans();
+ pdfView('Bon de commande', `${B.n} · ${B.f||'fournisseur à préciser'} · ${DF(B.cree.slice(0,10))}`, bcDoc(B),
+   [bcMail(B), `<button class="pv-b" onclick="fermerPdf();renderBC()">✎ Modifier</button>`].join(''));
+}
+/* Le message prêt dans la messagerie du cabinet : on y joint le PDF
+   enregistré depuis l'aperçu. Rien ne part sans qu'on clique « Envoyer ». */
+function bcMail(B){
+ const I=bcInfo(B.f); if(!I.mail) return '';
+ const corps=['Bonjour,','',
+   `Veuillez trouver ci-joint notre bon de commande ${B.n}${I.client?` (client n° ${I.client})`:''} :`,'',
+   ...B.lignes.map(l=>`- ${l.q} × ${l.nom} (${l.ref}${l.gtin?', GTIN '+l.gtin:''})`),'',
+   `Livraison : ${B.adresse||CABINET.adresse||''}${B.livraison?`, au plus tard le ${DF(B.livraison)}`:''}.`,
+   ...(perMin()?[`Merci de livrer des lots ayant au moins ${perMin()} jours de validité.`]:[]),
+   ...(B.note?['',B.note]:[]),'',
+   'Merci de nous confirmer la commande, ses prix et son délai.','','Bien cordialement,',
+   [B.par,CABINET.nom].filter(Boolean).join(' — ')].join('\n');
+ const h=`mailto:${encodeURIComponent(I.mail).replace(/%40/g,'@')}?subject=${encodeURIComponent(`Bon de commande ${B.n} — ${CABINET.nom||''}`)}&body=${encodeURIComponent(corps)}`;
+ return `<a class="pv-b bc-mail" href="${esc(h)}" style="text-decoration:none" title="Ouvre votre messagerie — joignez-y le PDF enregistré">✉ Préparer l’e-mail</a>`;
+}
+function bcDoc(B){
+ const prix=CAN('prix'), I=bcInfo(B.f);
+ const prn=PRATICIENS.includes(B.par)?B.par:undefined;
+ const tot=B.lignes.reduce((t,l)=>t+l.q*l.pu,0), min=perMin();
+ const ident=[(CABINET.raison&&CABINET.nom&&CABINET.raison!==CABINET.nom)?esc(CABINET.nom):'',
+   esc(CABINET.adresse||''), CABINET.siret?'SIRET '+esc(CABINET.siret):'',
+   CABINET.tva?'TVA intracommunautaire '+esc(CABINET.tva):'',
+   [CABINET.tel,CABINET.mail].filter(Boolean).map(esc).join(' · ')].filter(Boolean).join('<br>');
+ return `<div class="a4 bc-doc">
+  ${docEntete(null,prn)}
+  <div class="gr">
+  <div class="dv-ti"><h1>Bon de commande</h1>
+   <div class="n"><b>${esc(B.n)}</b><br>Établi le ${horoTxt(B.cree)}</div></div>
+  <div class="dv-2">
+   <div class="dv-bx"><div class="lb">Commandé par</div>
+    <b>${esc(CABINET.raison||CABINET.nom||'')}</b>
+    <div>${ident}${B.par?`<br>Commande passée par ${esc(B.par)}`:''}</div></div>
+   <div class="dv-bx"><div class="lb">Fournisseur</div>
+    <b>${B.f?esc(B.f):'À préciser'}</b>
+    <div>${[I.adresse?esc(I.adresse):'', I.mail?esc(I.mail):'',
+      I.client?`Notre n° de client : <b>${esc(I.client)}</b>`:''].filter(Boolean).join('<br>')||'<span class="vide">—</span>'}</div></div></div>
+  <div class="dv-lieu"><b>Livraison :</b> ${esc(B.adresse||CABINET.adresse||'')}${
+    B.livraison?` — souhaitée au plus tard le <b>${DF(B.livraison)}</b>`:''}.</div>
+  <div class="dv-s">Articles commandés</div>
+  <table class="dv-tb"><thead><tr>
+    <th style="width:${prix?38:56}%">Désignation</th><th style="width:21%">Référence</th>
+    <th class="n" style="width:10%">Quantité</th><th style="width:${prix?11:13}%">Unité</th>
+    ${prix?'<th class="n" style="width:10%">P.U.</th><th class="n" style="width:10%">Montant</th>':''}</tr></thead><tbody>
+   ${B.lignes.map(l=>`<tr><td><b>${esc(l.nom)}</b>${(l.n&&l.n!==l.nom)?`<div class="dz">${esc(l.n)}</div>`:''}</td>
+     <td class="dzc"><span class="mono">${esc(l.ref)}</span>${l.gtin?`<div class="dz">GTIN ${esc(l.gtin)}</div>`:''}</td>
+     <td class="n"><b>${l.q}</b></td><td>${esc(plu(l.q,l.u)||(l.q>1?'unités':'unité'))}</td>
+     ${prix?`<td class="n">${E2(l.pu)}</td><td class="n">${E2(l.q*l.pu)}</td>`:''}</tr>`).join('')}
+  </tbody></table>
+  ${prix?`<div class="dv-tot">
+   <div class="l net"><span>Total indicatif</span><span>${E2(tot)}</span></div>
+   <div class="l tva"><span>aux prix d’achat enregistrés au stock, hors remise : le fournisseur confirme ses tarifs</span><span></span></div></div>`:''}
+  <div class="dv-s">Conditions</div>
+  <div class="dv-p">Chaque boîte livrée porte son numéro de lot et sa date de péremption${min
+    ?` ; il lui reste <b>au moins ${min} jours</b> de validité à la livraison${PEREMPTION.bloquer?' — un lot plus court sera refusé à la réception':''}`:''}.
+   Merci de nous confirmer cette commande, ses prix et son délai de livraison.${B.note?`<br>${esc(B.note)}`:''}</div>
+  <div class="dv-sg"><div class="c"><div class="lb">Bon pour commande</div>
+   <div class="hint">${esc(B.par||CABINET.nom||'')} — date et signature</div></div></div>
+  </div>
+  ${docPied(null,prn)}
+ </div>`;
+}
+
 /* ---- Les archives ---- */
 function vueArchives(){
  const R=[];
@@ -12328,7 +12982,7 @@ V.stock=()=>{
  const onglet=(k,l,n)=>`<button class="${stkTab===k?'on':''}" onclick="stkTab='${k}';paint()">${l}${n!==undefined&&n!==0?` <span class="mu">${n}</span>`:''}</button>`;
  const prixOk=CAN('prix');   /* sans ce droit, le stock se compte en boîtes */
  return `<div class="head"><div><h1>Stock &amp; lots</h1><p>${STOCK.length} références · ${nLots} lots actifs${prixOk?` · ${EUR(val)} immobilisés`:''}${nArch?` · ${nArch} archivé${nArch>1?'s':''}`:''}</p></div>
-  <div class="r"><button class="btn" onclick="toast('Bon de commande généré')">Bon de commande</button>
+  <div class="r"><button class="btn" onclick="ouvrirBonCommande()">Bon de commande</button>
    <button class="btn" onclick="ouvrirSortie()">− Sortie</button>
    <button class="btn" onclick="ouvrirUtilisation()">✚ Utilisation</button>
    <button class="btn p" onclick="ouvrirReception()">+ Réception de lot</button></div></div>
@@ -12338,7 +12992,7 @@ V.stock=()=>{
  <div class="grid g4" style="margin-bottom:14px">
   ${prixOk?kpi('Valeur du stock',EUR(val))
          :kpi('Lots actifs',NUM(nLots),`sur ${NUM(STOCK.length)} références`)}
-  ${kpi('Sous le seuil cabinet',STOCK.filter(s=>s.q<s.s).length,'à recommander',STOCK.filter(s=>s.q<s.s).length?'dn':'up')}
+  ${kpi('Sous le seuil cabinet',STOCK.filter(sousSeuil).length,'à recommander',STOCK.filter(sousSeuil).length?'dn':'up')}
   ${kpi('Seuil individuel franchi',alertesPrat.length,alertesPrat.length?`${[...new Set(alertesPrat.flatMap(sousSeuilPrat))].map(q=>q.replace('Dr ','')).join(' · ')} — ${alertesPrat.length} référence${alertesPrat.length>1?'s':''}`:'chacun a de quoi travailler',alertesPrat.length?'dn':'up')}
   ${(()=>{const urg=STOCK.reduce((n,s)=>n+lotsActifs(s).filter(l=>!lotEpuise(l)&&perNiveau(l.per).k==='critique').length,0);
     const ecouler=STOCK.reduce((n,s)=>n+lotsActifs(s).filter(l=>!lotEpuise(l)&&['alerte','critique'].includes(perNiveau(l.per).k)).length,0);
@@ -12372,13 +13026,13 @@ V.stock=()=>{
    niv: x=>x.s?stockUtile(x)/x.s:stockUtile(x),
    lot: x=>{const A=lotsActifs(x).map(l=>l.lot).filter(Boolean).sort(); return A[0]||''},
    per: x=>perProche(x),
-   cder:x=>Math.max(0,x.s*2-x.q),
+   cder:x=>aCommander(x),
    st:  x=>RANG_ST[sst(x).k]||0,
   }).map(s=>{const st=sst(s),
    col=st.k==='ok'?'var(--good)':(st.k==='surv'||st.k==='per')?'var(--warn)':'var(--crit)',
    pctU=Math.min(100,stockUtile(s)/(s.s*2)*100),
    bas=sousSeuilPrat(s), sp=seuilPrat(s), A=lotsRanges(s),
-   bes=Math.max(0,s.s*2-s.q);
+   bes=aCommander(s);
    return `<tr><td><b>${esc(nomProduit(s))}</b>
     <div class="mu mono" style="font-size:11px">${s.ref} · ${esc(sfamDe(s))}${CAN('prix')?` · ${EUR(s.pu)}/${s.u}`:''} · ${esc(s.f)}</div></td>
     <td class="num"><b>${s.q}</b> <span class="mu" style="font-size:11px">/ ${s.s}</span>
@@ -13606,7 +14260,7 @@ V.params=()=>{
        onchange="EXPEDITEUR['${k}']=this.value;paint()"></div>`;
    const n=k=>ENVOIS.filter(e=>k==='tous'||e.statut===k).length;
    const PRE=[
-    ['Un relais d’envoi, hors du navigateur','PRAXIS est une page servie publiquement : tout ce qu’elle contient est lisible. Le mot de passe de la boîte ou la clé du prestataire vivent sur un petit service qui reçoit la demande, vérifie qui appelle, et envoie.'],
+    ['Un relais d’envoi, hors du navigateur','AISTO est une page servie publiquement : tout ce qu’elle contient est lisible. Le mot de passe de la boîte ou la clé du prestataire vivent sur un petit service qui reçoit la demande, vérifie qui appelle, et envoie.'],
     ['SPF, DKIM et DMARC sur le domaine d’expédition','Sans quoi un message signé contact@… mais expédié par un autre serveur part en indésirable, ou se fait rejeter.'],
     ['Un lien sécurisé plutôt qu’une pièce jointe','La CNIL demande une messagerie chiffrée pour toute information médicale nominative, et rappelle qu’une adresse mal saisie suffit à rompre le secret. Le message reste neutre, le document derrière une page qui identifie le patient.'],
     ['MSSanté pour les échanges entre confrères','L’e-mail ordinaire n’est pas le canal attendu pour transmettre une pièce médicale à un autre professionnel.'],
@@ -13618,7 +14272,7 @@ V.params=()=>{
    <div class="grid g2">
     <div class="card"><div class="h"><h2>Expéditeur</h2><span class="s">ce que voit le patient</span></div><div class="b">
       <div class="grid g2" style="gap:10px">
-        ${F('nom','Nom affiché','Cabinet Dr Baroudi')}
+        ${F('nom','Nom affiché','Centre Gemelia')}
         ${F('mail','Adresse d’expédition','contact@exemple.fr')}
       </div>
       <div class="grid g2" style="gap:10px">
@@ -14559,7 +15213,7 @@ function envoyerAcces(u,k,objet){
  const a=creerAcces(u,k);
  const e=creerEnvoi({pid:null, docId:a.jeton, docNom:`${ACCES_LIB[k]} — ${u.nom}`,
    docK:'acces', canal:'e-mail', dest:u.mail,
-   objet:objet||`${ACCES_LIB[k]} à ${CABINET.nom||'PRAXIS'}`, mode:'lien'});
+   objet:objet||`${ACCES_LIB[k]} à ${CABINET.nom||'AISTO'}`, mode:'lien'});
  a.envoi=e.id;
  if(typeof simulerEnvoi==='function') simulerEnvoi(e.id);
  return a;
@@ -14601,7 +15255,7 @@ function envoyerInvit(){
    derniere:null, a2f:!!INV.a2f, etat:'invite', cree:nowStamp(), par:ROLES[role].u};
  UTILS.push(u);
  const a=envoyerAcces(u,'invitation',
-   `Votre accès à ${CABINET.nom||'PRAXIS'} — ${ROLES[u.role].l}`);
+   `Votre accès à ${CABINET.nom||'AISTO'} — ${ROLES[u.role].l}`);
  INV=null; paint();
  toast(`Invitation envoyée à ${mail} — ${ROLES[u.role].l} · lien valable ${ACCES_J.invitation} jours`);
  return a;
@@ -14609,7 +15263,7 @@ function envoyerInvit(){
 function renvoyerInvit(uid){
  if(!EST_ADMIN()){ toast('Seul le titulaire du cabinet renvoie une invitation'); return }
  const u=utilById(uid); if(!u) return;
- envoyerAcces(u,'invitation', `Rappel — votre accès à ${CABINET.nom||'PRAXIS'}`);
+ envoyerAcces(u,'invitation', `Rappel — votre accès à ${CABINET.nom||'AISTO'}`);
  paint(); toast(`Invitation renvoyée à ${u.mail}`);
 }
 /* ---- identifiants perdus : on rouvre la porte, on ne la laisse pas ouverte ---- */
@@ -14617,7 +15271,7 @@ function reprendreAcces(uid){
  if(!EST_ADMIN()){ toast('Seul le titulaire du cabinet renvoie une procédure de connexion'); return }
  const u=utilById(uid); if(!u) return;
  if(!MAIL_OK(u.mail)){ toast(`${u.nom} n’a pas d’adresse e-mail valide — complétez sa fiche`); return }
- envoyerAcces(u,'reprise', `Reprise d’accès à ${CABINET.nom||'PRAXIS'}`);
+ envoyerAcces(u,'reprise', `Reprise d’accès à ${CABINET.nom||'AISTO'}`);
  paint();
  toast(`Procédure de connexion envoyée à ${u.mail} — lien valable ${ACCES_J.reprise*24} heures`);
 }
@@ -14652,7 +15306,7 @@ function pageAcces(j){
      :et==='expire'?`<p>Ce lien a expiré le <b>${DF(a.exp)}</b>. Demandez-en un nouveau au cabinet — par sécurité, il ne peut pas être prolongé.</p>`
      :et==='annule'?`<p>Ce lien a été révoqué par le cabinet et ne permet plus d’ouvrir l’accès.</p>`
      :`<p>${a.k==='invitation'
-         ?`${esc(ROLES[u.role].u===u.nom?'Vous êtes':'Vous avez été')} invité(e) à rejoindre ${esc(CABINET.nom||'le cabinet')} sur PRAXIS, en tant que <b>${esc(R.l||u.role)}</b>.`
+         ?`${esc(ROLES[u.role].u===u.nom?'Vous êtes':'Vous avez été')} invité(e) à rejoindre ${esc(CABINET.nom||'le cabinet')} sur AISTO, en tant que <b>${esc(R.l||u.role)}</b>.`
          :`Vous avez demandé à reprendre l’accès à votre compte <b>${esc(R.l||u.role)}</b>.`}
         Choisissez votre mot de passe sur cette page : il ne transite par aucun message et le cabinet ne le connaît pas.</p>
        <p>Ce que votre rôle permet : ${esc(droits.slice(0,6).join(' · '))}${droits.length>6?` · +${droits.length-6}`:''}.</p>
@@ -14802,6 +15456,9 @@ function journalConnexions(){
     <b>C’est ici, et seulement ici, qu’on lit le vrai motif.</b> Aucun mot de passe n’y figure, pas même en partie.</div></div></div>`;
 }
 V.equipe=()=>{
+ /* Connecté, l'équipe est celle du serveur : ses comptes, ses liens, son
+    journal. La démonstration garde la sienne, inventée. (lot 08) */
+ if(CONNECTE()) return vueEquipeServeur();
  const U=UTILS;
  const enAttente=U.filter(u=>u.etat==='invite').length;
  return `<div class="head"><div><h1>Équipe &amp; droits</h1><p>${U.length} utilisateur${U.length>1?'s':''} · ${RK.length} rôles${
@@ -17376,6 +18033,8 @@ function actePane(a){
 /* ---------------- Photos ---------------- */
 function addPhotoActe(aid){
  const a=ACTES.find(x=>x.id===aid); if(!a) return;
+ /* Lot 09 : connecté, on choisit de vraies photos, rangées sous cette séance. */
+ if(CONNECTE()){ phChoisirFichiers(F=>phImporter(a.patient, a.id, F).then(()=>{ if(AS&&AS.ro) renderOver() })); return }
  const L=photosActe(a);
  const h=(a.patient*13)%40+8;
  PHOTOS.push({id:'PH-'+(PHOTOS.length+1),patient:a.patient,acte:a.id,date:TODAYS,
@@ -17393,17 +18052,17 @@ function secPhotos(a){
      B?` · du ${DFS(A.date)} au ${DFS(B.date)}`:` · ${DFS(A.date)}`}`:'aucune photo'}</div></div>
    <div class="r"><button class="btn xs p" onclick="addPhotoActe(${a.id})">＋ Photo</button></div></div>
   ${(A&&B)?`<div class="ba" style="margin-bottom:9px">
-    <img src="${photoSrc(A)}" alt="cliché simulé du ${DF(A.date)}">
-    <img class="af" id="baA" src="${photoSrc(B)}" alt="cliché simulé du ${DF(B.date)}">
+    <img src="${photoSrc(A,'plein')}" alt="cliché du ${DF(A.date)}">
+    <img class="af" id="baA" src="${photoSrc(B,'plein')}" alt="cliché du ${DF(B.date)}">
     <div class="hd" id="baH" style="left:50%"></div>
     <div class="tg l">${DFS(A.date)}</div><div class="tg r">${DFS(B.date)}</div></div>
    <input type="range" min="0" max="100" value="50" style="width:100%;margin-bottom:10px" oninput="setBA(this.value)">`:''}
   ${L.length?`<div class="phg">${L.map(x=>`<div class="phc">
-     <img src="${photoSrc(x)}" alt="cliché simulé du ${DF(x.date)}">
+     <img src="${photoSrc(x)}" alt="cliché du ${DF(x.date)}">
      <div class="phl"><b>${DF(x.date)}</b>${x.zone&&zoneDef(x.zone)?`<span>${esc(zoneNom(x.zone))}</span>`:''}</div></div>`).join('')}</div>`
    :`<div class="empty" style="padding:20px">Aucune photo sur cet acte.<br>
       <span class="mu" style="font-size:11.5px">Deux clichés à des dates différentes suffisent : le comparateur apparaît.</span></div>`}
-  <div class="mu" style="font-size:11px;padding:8px 2px 0">Illustrations simulées — aucune photo réelle dans ce prototype.</div>`;
+  ${CONNECTE()?'':'<div class="mu" style="font-size:11px;padding:8px 2px 0">Illustrations simulées — aucune photo réelle dans ce prototype.</div>'}`;
 }
 
 /* ---------------- Consommables ---------------- */
@@ -17794,7 +18453,7 @@ function secDocuments(a){
 /* ==========================================================================
    Version et détection de mise à jour
    ========================================================================== */
-const BUILD='FS';
+const BUILD='GD';
 function rechargerDur(){
  const u=new URL(location.href); u.searchParams.set('maj',Date.now()); location.replace(u.toString());
 }
@@ -19730,13 +20389,14 @@ function buildPal(q){
   {t:'Commande vocale',s:'parler plutôt que cliquer — ⌘⇧V',ic:'◉',k:'Action',go:()=>{closeAll();voixOuvrir()}},
   {t:'Dictée de consultation',s:'parler en soignant, le relevé se fait tout seul — ⌘⇧D',ic:'◉',k:'Action',go:()=>{closeAll();voixOuvrir('consultation')}},
   {t:'Envoyer toutes les relances échues',s:RDUE.length+' devis',ic:'↻',k:'Action',go:()=>{closeAll();allRel()}},
-  {t:'Bon de commande fournisseurs',s:ALERTES.length+' références sous le seuil',ic:'▧',k:'Action',go:()=>{closeAll();toast('Bon de commande généré')}},
+  {t:'Bon de commande fournisseurs',s:ALERTES.length+' références sous le seuil',ic:'▧',k:'Action',go:()=>{closeAll();go('stock');ouvrirBonCommande()}},
   {t:'Tableau de bord',s:'',ic:'◈',k:'Aller à',go:()=>{closeAll();go('dash')}},
   {t:'Patients',s:'',ic:'◍',k:'Aller à',go:()=>{closeAll();go('patients')}},
   {t:'Suivi des actes',s:'',ic:'✚',k:'Aller à',go:()=>{closeAll();go('actes')}},
   {t:'Devis et conversions',s:'',ic:'◫',k:'Aller à',go:()=>{closeAll();go('devis')}},
   {t:'Stock & lots',s:'',ic:'▧',k:'Aller à',go:()=>{closeAll();go('stock')}},
   {t:'Statistiques',s:'',ic:'◔',k:'Aller à',go:()=>{closeAll();go('stats')}},
+  {t:'Mon compte',s:'mot de passe, double facteur, sessions',ic:'◉',k:'Aller à',go:()=>{closeAll();go('compte')}},
  ];
  if(!q){ it.push(...ACT.slice(0,3)); it.push(...ACT.slice(3)); }
  else{
@@ -20257,6 +20917,8 @@ const VOIX_REGLES=[
   sur:1, quoi:()=>'Sortie de stock', run:()=>{go('stock'); ouvrirSortie()}},
  {re:/^(?:ouvre |fais |saisis |nouvelle? )?(?:une |la |un )?(utilisation)(?: sur un patient)?$/,
   sur:1, quoi:()=>'Utilisation sur un patient', run:()=>{go('stock'); ouvrirUtilisation()}},
+ {re:/^(?:ouvre |fais |prepare |genere |nouveau |cree )?(?:un |le |une )?(bon de commande)(?: fournisseurs?)?$/,
+  sur:1, quoi:()=>'Bon de commande', run:()=>{go('stock'); ouvrirBonCommande()}},
 
  /* ------------------------------------------------------------------------
     Les mots qu'on dit sans y penser
@@ -20667,7 +21329,7 @@ function renderVoix(){
     <div><b>Le micro sera redemandé à chaque ouverture.</b>
       Ce fichier est ouvert depuis votre disque, et le navigateur ne retient aucune autorisation pour un
       fichier local — ce n’est pas un réglage du logiciel, c’est une règle de Chrome.
-      Ouvrez plutôt <span class="mono">obaroudi05.github.io/praxis</span> : l’autorisation ne s’y donne qu’une fois,
+      Ouvrez plutôt <span class="mono">obaroudi05.github.io/aisto</span> : l’autorisation ne s’y donne qu’une fois,
       et elle tient.</div></div>`
    :(VOIX_OK&&VX&&VX.perm==='granted')?`<div class="mu" style="margin:0 14px 8px;font-size:11px">
       ✓ Micro autorisé pour ce site — l’autorisation est retenue, elle ne sera plus redemandée.</div>`:''}
@@ -20798,6 +21460,15 @@ function setPerE(p){
 function perPrev(per){const [a,b]=perRange(per),n=days(a,b)+1;return {k:'perso',from:addD(a,-n),to:addD(a,-1)}}
 function toggleTheme(){const r=document.documentElement;r.dataset.theme=r.dataset.theme==='dark'?'light':'dark';paint()}
 function go(v,arg){ if(v==='devis') dSel=arg||null;
+ /* Lot 08 : un lien d'enrôlement affiché ne survit pas au départ de l'écran,
+    ni un secret de double facteur en cours de préparation ; et l'on relit
+    son compte, ou l'équipe, à chaque visite. */
+ try{
+   if(v!=='equipe'){ EQ.lien=null; EQ.confirme=null }
+   if(v!=='compte' && A2F.ou==='compte') a2fRaz(null);
+   if(v==='compte' && view!=='compte'){ COMPTE.etat='vide'; COMPTE.mdp={erreur:'',ok:'',occupe:false}; COMPTE.retrait=false }
+   if(v==='equipe' && view!=='equipe') EQ.etat='vide';
+ }catch(_){}
  if(v!=='patients') PE=null;    /* on ne garde pas une fiche ouverte en saisie hors de sa vue */
  view=v; document.getElementById('main').scrollTop=0; paint(); }
 
@@ -20873,7 +21544,7 @@ function navSuivre(){
    const e=navEtat(), sig=JSON.stringify(e);
    if(sig===navSig) return;
    navSig=sig;
-   try{ history.pushState({praxis:e}, '') }catch(_){}
+   try{ history.pushState({aisto:e}, '') }catch(_){}
  },0);
 }
 function navAppliquer(e){
@@ -20903,7 +21574,7 @@ addEventListener('popstate', ev=>{
    if(ici!==attendu){ navSig=attendu; navSuivre(); return }
  }
  navRetour=true;
- try{ navAppliquer((ev.state&&ev.state.praxis)||null) }
+ try{ navAppliquer((ev.state&&ev.state.aisto)||null) }
  finally{
    navRetour=false;
    if(navT){ clearTimeout(navT); navT=null }
@@ -20957,14 +21628,15 @@ function bandeauSaisie(){
    traîne ne doit rien apprendre à qui la trouve. Il ne montre donc qu'un
    écran de prise de vue, et ce qu'il vient de prendre.
    ========================================================================== */
-const jetonURL=()=>{ const m=String(location.hash||'').match(/^#ph=([A-Z0-9]{4,24})$/); return m?m[1]:null };
+const jetonURL=()=>{ const m=String(location.hash||'').match(/^#ph=([A-Z0-9]{4,32})$/); return m?m[1]:null };
 let PRISE=null;   /* la prise de vue en cours, côté téléphone */
 function prisePage(){
  const j=jetonURL();
  if(!PRISE) PRISE={jeton:j, clichés:[]};
+ if(PRISE.serveur) return prisePageServeur();
  const n=PRISE.clichés.length;
  return `<div class="prise">
-   <div class="prise-h"><div class="lg"><span class="px">Px</span> PRAXIS</div>
+   <div class="prise-h"><div class="lg"><span class="px">A</span> AISTO</div>
      <span class="mu">Prise de vue</span></div>
    <div class="prise-b">
      ${n?`<div class="prise-g">${PRISE.clichés.map((c,i)=>`<figure><img src="${c}" alt="Cliché ${i+1}">
@@ -20983,7 +21655,88 @@ function prisePage(){
        :'Lien incomplet : revenez au poste du cabinet et affichez un nouveau code.'}</div>
    </div></div>`;
 }
-function priseFichiers(input){
+/* ==========================================================================
+   Le téléphone, relié au serveur — lot 09
+   --------------------------------------------------------------------------
+   Il ouvre le lien ; le serveur lui remet un secret à lui, qui lie le lien à
+   CE téléphone. Il redessine chaque cliché avant de l'envoyer — réduit, sans
+   ce que l'appareil y avait écrit —, l'envoie, et ferme le lien quand tout
+   est parti. Il ne reçoit rien du dossier, et AISTO n'en garde aucune copie
+   ici : les clichés vivent dans la mémoire de la page, le temps de partir.
+   ========================================================================== */
+async function priseDemarrer(){
+ PRISE={jeton:jetonURL(), clichés:[], etat:'ouverture', serveur:true};
+ paint();
+ let r; try{ r=await srvAppel('POST','/api/prise/ouvrir',{jeton:PRISE.jeton}) }catch(e){ r={code:0} }
+ if(r.code===200){ PRISE.etat='pret'; PRISE.deposees=r.corps.deposees; PRISE.plafond=r.corps.plafond;
+   PRISE.exp=Date.parse(r.corps.expire_le) }
+ else { PRISE.etat='refus'; PRISE.erreur=refusEcriture(r) }
+ paint();
+}
+function prisePageServeur(){
+ const P=PRISE, n=P.clichés.length;
+ const tete=`<div class="prise-h"><div class="lg"><span class="px">A</span> AISTO</div><span class="mu">Prise de vue</span></div>`;
+ const seul=(e,html)=>`<div class="prise">${tete}<div class="prise-b"><div class="prise-v"><span class="e">${e}</span>${html}</div></div></div>`;
+ const recus=P.clichés.filter(c=>c.etat==='envoye').length;
+ if(P.etat==='ouverture') return seul('⏳','<p>Ouverture du lien…</p>');
+ if(P.etat==='refus') return seul('⛔',`<p><b>${esc(P.erreur||'Ce lien n’est plus valable.')}</b></p>${
+   recus?`<p class="mu">${recus} cliché${recus>1?'s avaient':' avait'} déjà été reçu${recus>1?'s':''} par le cabinet.</p>`:''}`);
+ if(P.etat==='fini') return seul('✓',`<p><b>${recus} cliché${recus>1?'s envoyés':' envoyé'} au cabinet.</b></p>
+   <p class="mu">Ils sont dans le dossier. AISTO n’en garde aucune copie sur ce téléphone : vous pouvez fermer cette page.</p>`);
+ const aEnvoyer=P.clichés.filter(c=>c.etat==='attente'||c.etat==='echec').length;
+ const place=Math.max(0,(P.plafond||40)-(P.deposees||0)-aEnvoyer);
+ const ETATS={prepa:'Préparation…', attente:'Prêt', envoi:'Envoi…', envoye:'✓ Reçu'};
+ return `<div class="prise">${tete}
+   <div class="prise-b">
+     ${n?`<div class="prise-g">${P.clichés.map((c,i)=>`<figure class="pr-${c.etat}">
+         ${c.apercu?`<img src="${c.apercu}" alt="Cliché ${i+1}">`:'<div class="prise-pp"></div>'}
+         ${c.etat==='attente'||c.etat==='echec'||c.etat==='erreur'?`<button onclick="priseRetirer(${i})" title="Retirer">✕</button>`:''}
+         <figcaption>${ETATS[c.etat]||('⚠ '+esc(c.erreur||'Échec'))}</figcaption></figure>`).join('')}</div>`
+       :`<div class="prise-v"><span class="e">📷</span><p>Prenez les clichés, ou choisissez-les dans la pellicule.</p></div>`}
+   </div>
+   <div class="prise-f">
+     <input type="file" id="prisefile" accept="image/*" capture="environment" multiple hidden onchange="priseFichiers(this)">
+     <button class="btn p" ${P.envoi||place<=0?'disabled':''} onclick="document.getElementById('prisefile').click()">
+       ${n?'＋ Ajouter un cliché':'📷 Prendre une photo'}</button>
+     ${aEnvoyer?`<button class="btn" ${P.envoi?'disabled':''} onclick="priseEnvoyer()">${
+       P.envoi?'Envoi en cours…':`Envoyer au cabinet · ${aEnvoyer}`}</button>`:''}
+     <div class="mu prise-n">Les clichés partent réduits, sans leur position GPS, vers le dossier du cabinet ;
+       AISTO n’en garde aucune copie sur ce téléphone.${P.exp?` Lien valable jusqu’à ${
+       new Date(P.exp).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})}.`:''}</div>
+   </div></div>`;
+}
+async function priseEnvoyerServeur(){
+ if(PRISE.envoi) return;
+ PRISE.envoi=true; peindrePrise();
+ for(const c of PRISE.clichés.filter(c=>c.etat==='attente'||c.etat==='echec')){
+   c.etat='envoi'; peindrePrise();
+   let r; try{ r=await srvAppel('POST','/api/prise/photos',{jeton:PRISE.jeton, ...c.prep}) }catch(e){ r={code:0} }
+   if(r.code===200){ c.etat='envoye'; c.prep=null; PRISE.deposees=r.corps.deposees }
+   else { c.etat='echec'; c.erreur=refusEcriture(r);
+     if(r.code===410){ PRISE.etat='refus'; PRISE.erreur=c.erreur; break } }
+   peindrePrise();
+ }
+ PRISE.envoi=false;
+ /* Tout est parti : le lien se ferme. Il ne rouvrira pas — un autre code se
+    demande au poste. */
+ if(PRISE.etat!=='refus'&&!PRISE.clichés.some(c=>['attente','echec','prepa','envoi'].includes(c.etat))){
+   try{ await srvAppel('POST','/api/prise/fin',{jeton:PRISE.jeton}) }catch(e){}
+   PRISE.etat='fini';
+ }
+ peindrePrise();
+}
+
+async function priseFichiers(input){
+ if(PRISE&&PRISE.serveur){
+   const F=[...(input.files||[])]; input.value='';
+   for(const f of F){
+     const c={etat:'prepa'}; PRISE.clichés.push(c); peindrePrise();
+     try{ c.prep=await phPreparer(f); c.apercu='data:image/jpeg;base64,'+c.prep.vignette; c.etat='attente' }
+     catch(e){ c.etat='erreur'; c.erreur=e.message }
+     peindrePrise();
+   }
+   return;
+ }
  const F=[...(input.files||[])].filter(f=>/^image\//.test(f.type));
  let reste=F.length; if(!reste){ input.value=''; return }
  F.forEach(f=>{ const r=new FileReader();
@@ -20993,6 +21746,7 @@ function priseFichiers(input){
 }
 function priseRetirer(i){ PRISE.clichés.splice(i,1); peindrePrise() }
 function priseEnvoyer(){
+ if(PRISE&&PRISE.serveur) return priseEnvoyerServeur();
  toast('Relais de transfert non branché — les clichés ne peuvent pas encore rejoindre le cabinet');
 }
 function peindrePrise(){ document.getElementById('main').innerHTML=prisePage() }
@@ -21483,6 +22237,7 @@ const ECRANS_TRACE={
  stock:   {t:'aucun', sans:'des produits, des lots et des péremptions'},
  equipe:  {t:'aucun', sans:'les comptes de l’équipe et leurs droits'},
  params:  {t:'aucun', sans:'les réglages du cabinet'},
+ compte:  {t:'aucun', sans:'son propre compte : mot de passe, double facteur, sessions'},
  patients:{t:'dossier'},
  actes:   {t:'liste'},
  devis:   {t:'liste'},
@@ -21497,7 +22252,7 @@ const ECRANS_TRACE={
 const ECRANS_LIB={dash:'tableau de bord', stats:'statistiques', stock:'stock',
  equipe:'équipe et droits', params:'paramètres', patients:'liste des patients',
  actes:'suivi des actes', devis:'devis et conversions', encaiss:'facturation et caisse',
- relances:'relances', envois:'envois et remises', acces:'journal des accès'};
+ relances:'relances', envois:'envois et remises', acces:'journal des accès', compte:'mon compte'};
 const ECRANS_OK=['dossier','liste','aucun'];
 /* Le journal se lit par quelqu'un, pas par une machine : on y écrit le nom de
    l'onglet tel qu'il s'appelle à l'écran, et non sa clé interne. */
@@ -21531,8 +22286,23 @@ function tracerVu(pid, quoi, ou, act){
    geste, pas un affichage. On repart donc de zéro pour la ligne suivante. */
 function tracerEcrit(pid, ou){ accSig=null; tracerVu(pid,'dossier',ou,'modification'); accSig=null }
 
+/* Lot 09 : connecté, le dossier ouvert à l'écran s'inscrit aussi au journal
+   du SERVEUR. L'espace de travail arrive d'un bloc, et ne s'y inscrit qu'en
+   liste : sans cette ligne, le journal du cabinet disait qu'on avait chargé
+   l'espace, pas quel dossier on avait regardé. Une ligne par dossier et par
+   quart d'heure — un repeint n'est pas une consultation. Le dossier est déjà
+   dans la page (l'espace l'a apporté) : cette ligne-ci s'écrit à côté de
+   l'affichage, pas avant ; c'est la limite de l'espace chargé d'un bloc. */
+const VUS=new Map();
+function srvDossierVu(pid){
+ const t=VUS.get(pid); if(t&&Date.now()-t<15*60000) return;
+ VUS.set(pid, Date.now());
+ srvAppel('GET',`/api/patients/${pid}/vu`).then(r=>{ if(r.code!==200) VUS.delete(pid) }).catch(()=>VUS.delete(pid));
+}
+
 /* Appelée en tête de paint(), AVANT le rendu. */
 function accesEcran(){
+ if(CONNECTE()&&view==='patients'&&pView==='liste'&&pSel!=null) srvDossierVu(pSel);
  const d=ECRANS_TRACE[view];
  if(!d || d.t==='aucun'){ accSig=null; return }
  if(view==='patients'){
@@ -21737,6 +22507,15 @@ function paint(){
     peint — et ce n'est pas un masquage : paint() rend la main, il n'y a rien
     à retrouver dans la page. En mode serveur, c'est SRV.moi qui fait foi. */
  if(!SRV.base && !SESSION && !SRV.moi){ peindreConnexion(); return }
+ /* Lot 08 : le double facteur exigé et pas encore relié — aucun écran ne se
+    peint, seul celui qui le relie. Ce n'est pas un masquage : le serveur n'a
+    rien rendu d'autre, et la page ne montre rien de ce qu'elle n'a pas. */
+ if(SRV.a2f==='a_activer'){ peindreA2fPorte(); return }
+ /* Correctif du 3 octobre 2026. Relié à un serveur, on ne peint le logiciel
+    que si l'espace de travail est venu. Sans lui, la page n'a que la
+    démonstration à montrer — c'est la faute du lot 04, fermée dans
+    cnxEnvoyer au lot 08 ; on la ferme ici, pour tous les chemins. */
+ if(SRV.base && !CONNECTE() && !SRV.moi){ if(ECHEC_ESPACE) peindreEchecEspace(); else peindreConnexion(); return }
  if(veillerSession()) return;
  const al=ROLES[role].v; if(!al.includes(view))view='dash';
  document.querySelectorAll('#nav a[data-v]').forEach(a=>{a.classList.toggle('on',a.dataset.v===view);
@@ -21753,6 +22532,7 @@ function paint(){
   if(e.style.display!=='none') garni=true;
  });
  if(titre) titre.style.display=garni?'':'none';
+ agregats();
  [['n-devis',ATT.length],['n-rel',RDUE.length],['n-stock',ALERTES.length],
   ['n-env',ENVOIS.filter(e=>e.statut==='echec').length]].forEach(([i,v])=>{
   const e=document.getElementById(i); e.textContent=v; e.style.display=v?'':'none'});
@@ -21773,6 +22553,9 @@ function paint(){
     compte. */
  accesEcran();
  document.getElementById('main').innerHTML=bandeauHTML()+blocConflit()+bandeauSaisie()+(V[view]||V.dash)();
+ { const lc=document.getElementById('lg-cab'); if(lc && lc.textContent!==(CABINET.nom||'')) lc.textContent=CABINET.nom||'';
+   const et=document.getElementById('etat'); if(et) et.innerHTML=etatServeurHTML();
+   const pop=document.getElementById('etat-pop'); if(pop) pop.remove(); }
  bindBA(); bindGZ(); calerCumul();
  if(typeof cfgPlanifier==='function') cfgPlanifier();
  /* En mode connecté, le classeur local ne doit PAS enregistrer : il écraserait
@@ -21815,10 +22598,20 @@ function bandeauHTML(){
      <button class="btn xs" style="margin-left:6px" onclick="reglerMode('auto')">Revenir en automatique</button></div></div>`;
 
  /* En autonome normal, sur la démonstration publique, le bandeau serait un
-    bruit permanent : le fichier n'a jamais rien fait d'autre. */
- if(!CONNECTE()) return '';
-
- return `<div class="bandeau srv"><span>●</span><div><b>${esc(SRV.moi.nom)}</b> · ${esc(ROLES[role]?ROLES[role].l:role)}
+    bruit permanent : le fichier n'a jamais rien fait d'autre. Connecté, ce
+    qu'il disait tient désormais au pied de la barre de gauche (0.7.4). */
+ return '';
+}
+/* Connecté : d'où viennent les données, sur une ligne au pied de la barre de
+   gauche, et le détail à la demande. Les avertissements ci-dessus — mode
+   forcé, serveur injoignable — gardent la tête de l'écran : eux doivent
+   crier. */
+function etatServeurHTML(){
+ if(!CONNECTE() || !SRV.moi) return '';
+ return `<div class="bandeau srv"><button type="button" class="etat-l" aria-expanded="false" onclick="etatDetail(this)"
+   title="D’où viennent les données — cliquer pour le détail"><span class="pt">●</span>
+   Serveur · ${SRV.lecture?'écriture partielle':'dossiers du cabinet'}<span class="i">ⓘ</span></button>
+   <div class="etat-d" hidden><b>${esc(SRV.moi.nom)}</b> · ${esc(ROLES[role]?ROLES[role].l:role)}
    — dossiers du cabinet, sur le serveur.`
    + (SRV.voulu==='connecte' ? ' <b>(mode forcé)</b>' : '')
    + (SRV.lecture ? ` <b>Écriture partielle</b> : les <b>fiches patient</b>, les <b>devis</b>, les
@@ -21829,6 +22622,22 @@ function bandeauHTML(){
       l’écran Stock, et la <b>suppression d’une séance</b>.
       N’y saisissez pas de dossier réel tant que l’écriture n’est pas posée partout.` : '')
    + `</div></div>`;
+}
+/* Le détail s'ouvre dans une fenêtre posée sur la page, et non dans la barre
+   de gauche : la barre a ses propres couleurs, et passe sous le plan de
+   travail. Un second clic, un clic ailleurs ou Échap la ferment. */
+function etatDetail(btn){
+ let pop=document.getElementById('etat-pop');
+ if(pop){ pop.remove(); btn.setAttribute('aria-expanded','false'); return }
+ const d=btn.parentElement.querySelector('.etat-d'); if(!d) return;
+ pop=document.createElement('div'); pop.id='etat-pop'; pop.className='etat-pop'; pop.setAttribute('role','dialog');
+ pop.setAttribute('aria-label','D’où viennent les données'); pop.innerHTML=d.innerHTML;
+ document.body.appendChild(pop); btn.setAttribute('aria-expanded','true');
+ const fermer=e=>{ if(e.type==='keydown'&&e.key!=='Escape') return;
+   if(e.type==='mousedown'&&(pop.contains(e.target)||btn.contains(e.target))) return;
+   pop.remove(); btn.setAttribute('aria-expanded','false');
+   document.removeEventListener('mousedown',fermer,true); document.removeEventListener('keydown',fermer,true) };
+ document.addEventListener('mousedown',fermer,true); document.addEventListener('keydown',fermer,true);
 }
 /* Le schéma cumulé prend la hauteur qui reste réellement sous lui : l'en-tête
    du patient passe sur deux lignes quand la fenêtre se resserre, une hauteur
@@ -21966,7 +22775,7 @@ document.querySelectorAll('#nav a[data-v]').forEach(a=>a.onclick=()=>{
    version du logiciel ne les efface plus. Les dossiers eux-mêmes — patients,
    séances, devis, factures — sont conservés à part, dans le classeur.
    ========================================================================== */
-const CFG_CLE='praxis.reglages.v1';
+const CFG_CLE='aisto.reglages.v1';
 let cfgQuand=null, cfgEtat='', cfgActif=false;
 const remplTab=(t,v)=>{ if(!Array.isArray(v)) return; const c=v.slice(); t.length=0; c.forEach(x=>t.push(x)) };
 const remplObj=(o,v)=>{ if(!v||typeof v!=='object') return; const c={...v};
@@ -21986,6 +22795,7 @@ const CFG={
  zretire:   {l:'Zones retirées',    lit:()=>ZRETIRE,    ecrit:v=>remplObj(ZRETIRE,v)},
  sfams:     {l:'Sous-familles',    lit:()=>SFAMS,      ecrit:v=>{ if(v&&typeof v==='object') SFAMS=v }},
  peremption:{l:'Seuils de péremption', lit:()=>PEREMPTION, ecrit:v=>fondObj(PEREMPTION,v)},
+ fournisseurs:{l:'Fournisseurs',    lit:()=>FOURNISSEURS, ecrit:v=>{ if(v&&typeof v==='object'&&!Array.isArray(v)) FOURNISSEURS=v }},
  stock:     {l:'Consommables',      lit:()=>STOCK,      ecrit:v=>{ remplTab(STOCK,v);
    /* un stock repris d'une sauvegarde ne connaît pas forcément la répartition :
       on la reconstitue, et ce qui n'était à personne devient commun */
@@ -22053,6 +22863,10 @@ function cfgZonesOrphelines(){
 }
 function cfgAppliquer(o){
  if(!o||typeof o!=='object') return false;
+ /* 0.7.4 : le nom par défaut devient « Centre Gemelia ». Des réglages gardés
+    avec l'ancien nom PAR DÉFAUT le prennent ; un nom choisi reste le sien. */
+ for(const k of ['cabinet','expediteur'])
+   if(o[k]&&o[k].nom==='Cabinet Dr Baroudi') o[k].nom='Centre Gemelia';
  /* réglages d'une version antérieure : on convertit la matrice de droits
     en écarts avant de l'appliquer, sinon elle réimposerait l'ancien menu */
  if(o.roles&&!o.droits) o.droits=droitsHerites(o.roles);
@@ -22087,7 +22901,7 @@ function cfgExporter(){
  const t=JSON.stringify(cfgPaquet(),null,1);
  const a=document.createElement('a');
  a.href=URL.createObjectURL(new Blob([t],{type:'application/json'}));
- a.download='praxis-reglages-'+TODAYS+'.json';
+ a.download='aisto-reglages-'+TODAYS+'.json';
  document.body.appendChild(a); a.click();
  setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove() },400);
  toast('Réglages exportés — ce fichier rejoue votre configuration sur un autre poste');
@@ -22160,7 +22974,7 @@ function carteSauvegarde(){
    sauvegarde vers un fichier n'est pas un ornement mais la seule chose qui
    protège vraiment ce qui est saisi.
    ========================================================================== */
-const CL_BASE='praxis', CL_MAG='classeur', CL_CLE='v1';
+const CL_BASE='aisto', CL_MAG='classeur', CL_CLE='v1';
 let clB=null, clQuand=null, clEtat='', clActif=false, clDernier='', clOccupe=false;
 
 const CLA={
@@ -22259,17 +23073,17 @@ const clQuandTxt=()=>{ if(!clQuand) return 'pas encore enregistré';
    navigateur effacé, un disque qui lâche.
    -------------------------------------------------------------------------- */
 function sauvegardeTotale(){
- return {_v:1,_build:BUILD,_le:new Date().toISOString(),_quoi:'praxis-sauvegarde',
+ return {_v:1,_build:BUILD,_le:new Date().toISOString(),_quoi:'aisto-sauvegarde',
          reglages:cfgPaquet(), classeur:clPaquet()};
 }
 function svExporter(){
  const t=JSON.stringify(sauvegardeTotale());
  const a=document.createElement('a');
  a.href=URL.createObjectURL(new Blob([t],{type:'application/json'}));
- a.download='praxis-sauvegarde-'+TODAYS+'.json';
+ a.download='aisto-sauvegarde-'+TODAYS+'.json';
  document.body.appendChild(a); a.click();
  setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove() },400);
- try{ localStorage.setItem('praxis.derniere.sauvegarde',new Date().toISOString()) }catch(e){}
+ try{ localStorage.setItem('aisto.derniere.sauvegarde',new Date().toISOString()) }catch(e){}
  toast('Sauvegarde complète exportée · réglages et dossiers');
  paint();
 }
@@ -22279,7 +23093,7 @@ function svImporter(inp){
  const f=inp&&inp.files&&inp.files[0]; if(!f) return;
  const r=new FileReader();
  r.onload=async()=>{ let o=null;
-   try{ o=JSON.parse(String(r.result)) }catch(e){ toast('Ce fichier n’est pas une sauvegarde PRAXIS'); return }
+   try{ o=JSON.parse(String(r.result)) }catch(e){ toast('Ce fichier n’est pas une sauvegarde AISTO'); return }
    let n=0;
    if(o&&o.classeur&&clAppliquer(o.classeur)) n++;
    if(o&&o.reglages&&cfgAppliquer(o.reglages)) n++;
@@ -22305,7 +23119,7 @@ const CL_EMPECHE={
 /* Depuis combien de jours la dernière sauvegarde vers un fichier ? Un classeur
    qui n'existe qu'ici n'est pas sauvegardé, il est simplement pas encore perdu. */
 function svAge(){
- let t=null; try{ t=localStorage.getItem('praxis.derniere.sauvegarde') }catch(e){}
+ let t=null; try{ t=localStorage.getItem('aisto.derniere.sauvegarde') }catch(e){}
  if(!t) return null;
  return Math.floor((Date.now()-new Date(t).getTime())/86400000);
 }
@@ -22444,8 +23258,36 @@ const SRV = {
   dispo: false,        /* un serveur répondait-il, indépendamment du mode */
   sonde: null,         /* 'trouve' | 'rien' | 'injoignable' | 'trop-long' */
   lecture: true,       /* le lot 04 lit ; l'écriture traversante vient ensuite */
+  a2f: null,           /* 'a_activer' : la session n'a pas vu le second facteur exigé (lot 08) */
+  essai: false,        /* la copie d'essai, remplie de données fictives (0.7.3) */
 };
 const CONNECTE = () => SRV.mode === 'connecte';
+
+/* --------------------------------------------------------------------------
+   La copie d'essai (0.7.3)
+   --------------------------------------------------------------------------
+   L'application d'essai porte la démonstration — des patients inventés — et
+   n'est pas couverte par l'hébergement de données de santé. Son serveur le
+   dit dans son état public ; l'écran le montre avant même la connexion, sur
+   toute la largeur, et dans le titre de l'onglet. Deux AISTO ouverts côte à
+   côte ne doivent jamais se confondre : un vrai patient saisi dans l'essai
+   serait une donnée de santé hors de l'hébergement agréé.
+   -------------------------------------------------------------------------- */
+const ESSAI_DIT = 'Copie d’essai — données fictives. N’y saisissez jamais de vrai patient : elle n’est pas l’hébergement agréé des données de santé.';
+const pastilleEssai = (court=false) => SRV.essai
+  ? `<span class="essai-pastille" role="status" title="${ESSAI_DIT}">${court?'Copie d’essai':'Essai · données fictives'}</span>` : '';
+function marquerEssai(on){
+ SRV.essai = !!on;
+ document.body.classList.toggle('essai', SRV.essai);
+ const lg = document.querySelector('.side .logo .lg-t');
+ let b = document.getElementById('essai-pastille');
+ if(SRV.essai && !b && lg){
+   lg.insertAdjacentHTML('beforeend', pastilleEssai(true));
+   b = lg.lastElementChild; b.id = 'essai-pastille';
+ }
+ if(!SRV.essai && b) b.remove();
+ if(SRV.essai && !/essai/.test(document.title)) document.title = 'AISTO — copie d’essai';
+}
 
 /* Où chercher le serveur. Sur un poste du cabinet, l'interface est servie par
    le serveur lui-même : la même origine suffit. On laisse la possibilité de
@@ -22469,7 +23311,7 @@ const CONNECTE = () => SRV.mode === 'connecte';
    mode autonome ALORS QU'UN SERVEUR RÉPOND : on croirait travailler sur les
    dossiers du cabinet, on serait dans la démonstration.
    -------------------------------------------------------------------------- */
-const MODE_CLE = 'praxis.mode', SRVADR_CLE = 'praxis.serveur';
+const MODE_CLE = 'aisto.mode', SRVADR_CLE = 'aisto.serveur';
 /* 'auto' | 'autonome' | 'connecte' */
 function modeVoulu(){
  try{
@@ -22546,8 +23388,9 @@ async function srvSonder(){
      new Promise(r => setTimeout(() => r('trop-long'), 2500)),
    ]);
    if(course === 'trop-long') { SRV.sonde = 'trop-long'; return null }
-   if(!course || course.service !== 'praxis') { SRV.sonde = 'rien'; return null }
+   if(!course || course.service !== 'aisto') { SRV.sonde = 'rien'; return null }
    SRV.sonde = 'trouve';
+   SRV.etat = course;
    return base;
  }catch(e){ SRV.sonde = 'injoignable'; return null }
 }
@@ -22559,13 +23402,65 @@ async function srvChercher(){
  if(SRV.voulu === 'autonome') return false;      /* on ignore le serveur, exprès */
  if(!trouve) return false;
  SRV.base = trouve;
+ marquerEssai(!!(SRV.etat && SRV.etat.essai === true));
  return true;
+}
+
+/* Une session ouverte, mais l'espace de travail refusé ou en panne. */
+let ECHEC_ESPACE=null;
+function ecranEchecEspace(){
+ const e=ECHEC_ESPACE||{};
+ const motif=e.code===0?'Le serveur ne répond pas.'
+   :`Le serveur n’a pas rendu l’espace de travail${e.message?` : « ${e.message} »`:'.'}`;
+ return `<div class="cnx-fond"><div class="cnx-carte">
+   <div class="cnx-tete"><div class="cnx-logo">${esc(CABINET.nom||'AISTO')}</div>
+     <div class="cnx-sous">${e.nom?`Bonjour ${esc(e.nom)}. `:''}Vous êtes connecté, mais l’espace de travail ne s’est pas ouvert.</div></div>
+   <div class="cnx-err"><span class="e">⚠</span><div>${esc(motif)}</div></div>
+   <div class="mu" style="font-size:11.5px;margin:4px 0 12px;line-height:1.45">Inutile de vous reconnecter : votre
+     session est valable, et le même refus reviendrait. Réessayez dans un instant ; si cela se répète,
+     prévenez l’administrateur du cabinet${e.code?` (réponse ${e.code})`:''}.</div>
+   <button class="btn p cnx-btn" onclick="location.reload()">Réessayer</button>
+   <button class="btn g cnx-retour" onclick="srvDeconnecter()">Se déconnecter</button>
+ </div></div>`;
+}
+function peindreEchecEspace(){
+ document.body.classList.add('en-connexion');
+ ['over','pal','pdfv','parv','envv','voix'].forEach(i=>{ const x=document.getElementById(i); if(x) x.classList.remove('on') });
+ const sc=document.getElementById('scrim'); if(sc) sc.classList.remove('on');
+ document.getElementById('main').innerHTML=ecranEchecEspace();
 }
 
 /* Ai-je déjà une session ouverte ? */
 async function srvMoi(){
  const r = await srvAppel('GET','/api/espace');
- if(r.code !== 200) return false;
+ /* Lot 08 : le serveur exige le double facteur et cette session ne l'a pas
+    vu. Il ne rend pas l'espace — il dit pourquoi. On ne prend que l'identité,
+    pour saluer la personne sur l'écran qui relie son téléphone. */
+ if(r.code === 403 && r.corps && r.corps.detail && r.corps.detail.double_facteur === 'a_activer'){
+   const m = await srvAppel('GET','/api/moi');
+   if(m.code !== 200) return false;
+   SRV.moi = m.corps; SRV.a2f = 'a_activer';
+   return 'a2f';
+ }
+ /* Pas de session : la connexion. Une session valable, mais pas d'espace —
+    un refus, une panne : on ne renvoie PAS à la connexion. Le mot de passe et
+    le code mèneraient au même refus, et l'on redemanderait six chiffres pour
+    rien (production, 3 octobre 2026). On dit ce que le serveur répond. */
+ if(r.code === 401) return false;
+ if(r.code !== 200){
+   /* Est-on seulement connecté ? « Qui je suis » le dit sans rien ouvrir :
+      sans session, c'est l'écran de connexion qui répond. */
+   let m; try{ m = await srvAppel('GET','/api/moi') }catch(_){ m = {code:0} }
+   if(m.code === 401) return false;
+   ECHEC_ESPACE = { code:r.code, message:(r.corps&&r.corps.erreur)||null,
+                    nom:(m.code===200&&m.corps)?m.corps.nom:null };
+   /* l'identité vue à la porte du téléphone ne vaut pas espace : sans elle,
+      paint() ne peint rien du logiciel */
+   SRV.moi = null; SRV.a2f = null;
+   return 'echec';
+ }
+ ECHEC_ESPACE = null;
+ SRV.a2f = null;
  SRV.moi = r.corps.moi;
  SRV.droits = r.corps.droits;
  SRV.mode = 'connecte';
@@ -22674,7 +23569,7 @@ const AUTH = {
   mdpMin: 12,          /* l'ANSSI privilégie la longueur aux règles de composition */
   tours: 8000,         /* étirement. Le serveur, lui, utilise Argon2id */
   echecsMax: 8,        /* échecs sur UN compte avant freinage */
-  freinage: 15*60*1000,
+  freinage: 2*60*1000, /* comme le serveur depuis le 3 octobre 2026 : deux minutes */
   inactivite: 30*60*1000,
 };
 const REFUS_CNX = 'Identifiant ou mot de passe incorrect.';
@@ -22687,7 +23582,7 @@ const REFUS_CNX = 'Identifiant ou mot de passe incorrect.';
    minuterie, un raccourci clavier, une reprise de saisie) ouvrirait un dossier
    par-dessus l'écran de connexion. On ferme donc au même endroit que le
    verrou : à chaque porte, et pas seulement à la principale. */
-const porteFermee=()=>!SRV.base && !SESSION && !SRV.moi;
+const porteFermee=()=>(!SRV.base && !SESSION && !SRV.moi) || SRV.a2f==='a_activer';
 
 let MDP = {};        /* uid → {sel, e} — jamais le mot de passe */
 let CONNEX = [];     /* le journal des tentatives, succès compris */
@@ -22863,7 +23758,7 @@ function demanderReprise(adresse){
  const u=UTILS.find(x=>String(x.mail||'').toLowerCase()===a);
  if(u && u.etat!=='suspendu' && MAIL_OK(u.mail)){
    const garde=role; role='admin';        /* l'envoi est un acte du cabinet */
-   try{ envoyerAcces(u,'reprise', `Reprise d’accès à ${CABINET.nom||'PRAXIS'}`) }
+   try{ envoyerAcces(u,'reprise', `Reprise d’accès à ${CABINET.nom||'AISTO'}`) }
    finally{ role=garde }
  }
  return `Si un compte correspond à ${a || 'cette adresse'}, un lien de reprise vient d’y être envoyé. `
@@ -22872,21 +23767,94 @@ function demanderReprise(adresse){
 
 let CNX = {identifiant:'', motdepasse:'', code:'', totp:false, erreur:'', occupe:false};
 
+/* --------------------------------------------------------------------------
+   Le premier compte, sans Terminal (0.8.0)
+   --------------------------------------------------------------------------
+   Sur une base qui n'a encore aucun compte, et seulement si le cabinet a
+   posé un code d'installation dans l'environnement du serveur, l'écran de
+   connexion laisse place à celui-ci : le code, puis l'identifiant, le nom et
+   le mot de passe de l'administrateur. Ensuite, la connexion habituelle —
+   et le QR code du téléphone, puisque le double facteur est exigé.
+   -------------------------------------------------------------------------- */
+let INS = {jeton:'', identifiant:'', nom:'', praticien:true, mdp:'', mdp2:'', erreur:'', occupe:false};
+function ecranInstallation(){
+ return `<div class="cnx-fond"><div class="cnx-carte">
+   <div class="cnx-tete">
+     ${pastilleEssai()}
+     <div class="cnx-logo">AISTO</div>
+     <div class="cnx-sous">Premier compte. AISTO est installé, mais n’a encore aucun compte : créez celui de l’administrateur.</div>
+   </div>
+   ${INS.erreur?`<div class="cnx-err"><span class="e">⚠</span><div>${esc(INS.erreur)}</div></div>`:''}
+   <form onsubmit="installationEnvoyer(event)" autocomplete="off">
+     <label class="cnx-l">Code d’installation
+       <input class="inp" id="ins-jeton" type="password" autocomplete="off" value="${esc(INS.jeton)}"
+              oninput="INS.jeton=this.value" autofocus></label>
+     <div class="mu" style="font-size:11.5px;margin:-8px 0 13px;line-height:1.45">Celui que vous avez posé dans Scalingo,
+       variable <span class="mono">AISTO_JETON_INSTALLATION</span>.</div>
+     <label class="cnx-l">Identifiant
+       <input class="inp" id="ins-id" autocomplete="off" placeholder="par exemple : dr.o.baroudi" value="${esc(INS.identifiant)}"
+              oninput="INS.identifiant=this.value"></label>
+     <label class="cnx-l">Nom affiché
+       <input class="inp" id="ins-nom" autocomplete="off" placeholder="par exemple : Dr O. Baroudi" value="${esc(INS.nom)}"
+              oninput="INS.nom=this.value"></label>
+     <label class="cnx-case"><input type="checkbox" id="ins-prat" ${INS.praticien?'checked':''}
+              onchange="INS.praticien=this.checked"> Je suis aussi médecin du cabinet</label>
+     <label class="cnx-l">Mot de passe — au moins 12 caractères
+       <input class="inp" id="ins-mdp" type="password" autocomplete="new-password" oninput="INS.mdp=this.value"></label>
+     <label class="cnx-l">Le même, une seconde fois
+       <input class="inp" id="ins-mdp2" type="password" autocomplete="new-password" oninput="INS.mdp2=this.value"></label>
+     <button class="btn p cnx-btn" type="submit" ${INS.occupe?'disabled':''}>${INS.occupe?'Un instant…':'Créer le compte'}</button>
+   </form>
+ </div></div>`;
+}
+async function installationEnvoyer(ev){
+ if(ev) ev.preventDefault();
+ if(INS.occupe) return;
+ const g=id=>{ const e=document.getElementById(id); return e?e.value:'' };
+ INS.jeton=g('ins-jeton'); INS.identifiant=g('ins-id').trim().toLowerCase(); INS.nom=g('ins-nom').trim();
+ const p=document.getElementById('ins-prat'); INS.praticien=p?p.checked:INS.praticien;
+ INS.mdp=g('ins-mdp'); INS.mdp2=g('ins-mdp2');
+ INS.erreur = !INS.jeton ? 'Le code d’installation manque.'
+   : !INS.identifiant ? 'L’identifiant manque.'
+   : !INS.nom ? 'Le nom affiché manque.'
+   : INS.mdp.length<12 ? 'Le mot de passe fait au moins 12 caractères.'
+   : INS.mdp!==INS.mdp2 ? 'Les deux mots de passe ne sont pas les mêmes.' : '';
+ if(INS.erreur){ peindreConnexion(); return }
+ INS.occupe=true; peindreConnexion();
+ let r; try{ r = await srvAppel('POST','/api/installation',{ jeton:INS.jeton, identifiant:INS.identifiant,
+   nom:INS.nom, praticien:INS.praticien, motdepasse:INS.mdp }) }catch(e){ r={code:0, corps:null} }
+ INS.occupe=false;
+ if(r.code===200 || r.code===410){
+   /* fait — ou déjà fait : dans les deux cas, on se connecte */
+   if(SRV.etat) SRV.etat.installation=false;
+   CNX.identifiant = r.code===200 ? INS.identifiant : CNX.identifiant; CNX.erreur='';
+   CNX.info = r.code===200 ? 'Compte créé. Connectez-vous : AISTO vous demandera ensuite de relier votre téléphone.'
+                           : 'L’installation est déjà faite : connectez-vous.';
+   INS = {jeton:'', identifiant:'', nom:'', praticien:true, mdp:'', mdp2:'', erreur:'', occupe:false};
+   peindreConnexion(); return;
+ }
+ INS.erreur = (r.corps && r.corps.erreur) || (r.code ? `Le serveur a refusé (réponse ${r.code}).` : 'Le serveur ne répond pas.');
+ INS.mdp=''; INS.mdp2='';
+ peindreConnexion();
+}
+
 function ecranConnexion(){
  return `<div class="cnx-fond"><div class="cnx-carte">
    <div class="cnx-tete">
-     <div class="cnx-logo">${esc(CABINET.nom||'PRAXIS')}</div>
+     ${pastilleEssai()}
+     <div class="cnx-logo">${esc(CABINET.nom||'AISTO')}</div>
      <div class="cnx-sous">${CNX.totp?'Code de votre application d’authentification':'Identifiez-vous pour ouvrir les dossiers'}</div>
      ${(CNX.totp&&!SRV.base)?`<div class="cnx-demo-c">Démonstration : le code est <b class="mono">${esc(codeA2fAttendu())}</b></div>`:''}
    </div>
    ${CNX.erreur?`<div class="cnx-err"><span class="e">⚠</span><div>${esc(CNX.erreur)}</div></div>`:''}
+   ${(CNX.info&&!CNX.erreur)?`<div class="cnx-ok"><span class="e">✓</span><div>${esc(CNX.info)}</div></div>`:''}
    <form onsubmit="cnxEnvoyer(event)" autocomplete="on">
      ${CNX.totp?`
        <label class="cnx-l">Code à six chiffres
          <input class="inp cnx-code" id="cnx-code" inputmode="numeric" autocomplete="one-time-code"
-                maxlength="6" pattern="[0-9]{6}" value="${esc(CNX.code)}"
-                oninput="CNX.code=this.value" autofocus></label>
-       <div class="mu" style="font-size:11.5px;margin:8px 0 2px">Vérifiez l’heure de votre téléphone si le code est refusé.</div>
+                value="${esc(CNX.code)}" oninput="codeSaisi(this,'cnx')" autofocus></label>
+       <div class="mu" style="font-size:11.5px;margin:8px 0 2px;line-height:1.45">Le code de l’entrée « AISTO » de votre
+         application. Refusé ? Attendez le suivant, et vérifiez que l’heure du téléphone se règle automatiquement.</div>
      `:`
        <label class="cnx-l">Identifiant
          <input class="inp" id="cnx-id" autocomplete="username" value="${esc(CNX.identifiant)}"
@@ -22920,6 +23888,23 @@ const codeA2fAttendu=()=>{
 };
 function cnxOubli(){
  if(CNX.totp) return '';
+ /* Relié au serveur (correctif du 3 octobre 2026) : aucun lien ne part d'ici.
+    Le formulaire de la démonstration « envoyait » un lien à l'équipe
+    inventée et répondait « Demande enregistrée » — en production, une
+    promesse que personne ne tenait. C'est l'administrateur qui remet un lien
+    de réinitialisation, depuis l'écran « Équipe & droits ». */
+ if(SRV.base){
+   if(!CNX.oubli) return `<div class="cnx-pied">
+     <a onclick="CNX.oubli=true;CNX.erreur='';peindreConnexion()">Mot de passe oublié ?</a>
+     — personne ne peut choisir votre mot de passe à votre place, pas même le cabinet.</div>`;
+   return `<div class="cnx-oubli" id="cnx-oubli-srv">
+     <div class="cnx-l" style="font-weight:600">Mot de passe oublié</div>
+     <div class="mu" style="font-size:11.5px;margin:2px 0 8px;line-height:1.5">Il ne se renvoie pas : personne ne le
+       connaît. Demandez à l’administrateur du cabinet un <b>lien de réinitialisation</b> — il le remet depuis
+       l’écran « Équipe & droits ». L’administrateur lui-même, s’il est le seul : la console de l’hébergeur,
+       <span class="mono">node comptes.mjs enroler &lt;identifiant&gt;</span>.</div>
+     <button class="btn g" onclick="CNX.oubli=false;peindreConnexion()">Retour</button></div>`;
+ }
  if(CNX.oubliFait) return `<div class="cnx-pied"><b>✓ Demande enregistrée.</b><br>${esc(CNX.oubliFait)}</div>`;
  if(!CNX.oubli) return `<div class="cnx-pied">
    <a onclick="CNX.oubli=true;CNX.erreur='';peindreConnexion();setTimeout(()=>{const e=document.getElementById('cnx-oubli');if(e)e.focus()},40)">Mot de passe oublié ?</a>
@@ -22966,12 +23951,21 @@ function entrerDemo(uid){
 async function cnxEnvoyer(ev){
  if(ev) ev.preventDefault();
  if(CNX.occupe) return;
+ CNX.info='';
  /* on relit les champs : un gestionnaire de mots de passe remplit sans
     déclencher « oninput », et l'utilisateur se verrait refuser sa saisie */
  const g=id=>{ const e=document.getElementById(id); return e?e.value:'' };
  if(!CNX.totp){ CNX.identifiant=g('cnx-id')||CNX.identifiant;
                 CNX.motdepasse =g('cnx-mdp')||CNX.motdepasse }
- else CNX.code=g('cnx-code')||CNX.code;
+ else CNX.code=String(g('cnx-code')||CNX.code||'').replace(/\D/g,'');
+
+ /* Six chiffres, ou rien ne part : une saisie incomplète n'a pas à compter
+    comme un échec au serveur, qui freine le compte au huitième. */
+ if(CNX.totp && SRV.base && !/^[0-9]{6}$/.test(CNX.code)){
+   CNX.erreur='Le code fait six chiffres.'; peindreConnexion();
+   setTimeout(()=>{const e=document.getElementById('cnx-code'); if(e) e.focus()},50);
+   return;
+ }
 
  CNX.occupe=true; CNX.erreur='';
 
@@ -23006,15 +24000,38 @@ async function cnxEnvoyer(ev){
  }
  CNX.occupe=false;
  if(r.code===200){
+   /* Le mot de passe qu'on vient de taper sert, une fois, à préparer le
+      double facteur si le cabinet l'exige : on ne le redemande pas dix
+      secondes après. Il n'est rangé nulle part — c'est un argument. */
+   const mdpTape = CNX.motdepasse;
    CNX = {identifiant:'',motdepasse:'',code:'',totp:false,erreur:'',occupe:false};
-   await srvMoi();
+   const etat = await srvMoi();
+   if(etat === 'a2f'){ a2fRaz('porte'); peindreA2fPorte(); a2fPreparer(mdpTape); return }
+   if(etat === 'echec'){ peindreEchecEspace(); return }
+   /* La session est ouverte, mais l'espace n'est pas venu : le serveur a
+      répondu autre chose, ou plus rien. On ne peint PAS le logiciel — il
+      montrerait la démonstration avec un nom réel en haut, et l'on saisirait
+      une vraie séance dans un jeu fictif. (Trouvé par mutation, lot 08 : un
+      appel raté ici ouvrait la démonstration, depuis le lot 04.) */
+   if(etat !== true){
+     CNX.erreur='Vous êtes connecté, mais le serveur n’a pas rendu l’espace de travail. '
+       +'Rechargez la page ; si cela se répète, prévenez l’administrateur du cabinet.';
+     peindreConnexion(); return;
+   }
    document.body.classList.remove('en-connexion');
    paint();
    toast(`Bonjour ${SRV.moi.nom}`);
    return;
  }
  if(r.corps && r.corps.detail && r.corps.detail.code_requis){
-   CNX.totp=true; CNX.erreur=''; CNX.code=''; peindreConnexion();
+   /* Premier passage : le serveur demande le code, rien n'est faux. Déjà à
+      l'étape du code : c'est le code qui est refusé — faux, ou déjà servi —
+      et le serveur dit pourquoi. Jusqu'au 3 octobre 2026, ce motif était
+      effacé : l'écran redemandait six chiffres sans rien dire. */
+   const deja=CNX.totp;
+   CNX.totp=true; CNX.code='';
+   CNX.erreur=deja?((r.corps&&r.corps.erreur)||'Code refusé.'):'';
+   peindreConnexion();
    setTimeout(()=>{const e=document.getElementById('cnx-code'); if(e) e.focus()},50);
    return;
  }
@@ -23038,7 +24055,7 @@ function peindreConnexion(){
    .forEach(i=>{ const e=document.getElementById(i); if(e) e.innerHTML='' });
  const vx=document.getElementById('voix'); if(vx) vx.innerHTML='';
  const sc=document.getElementById('scrim'); if(sc) sc.classList.remove('on');
- document.getElementById('main').innerHTML = ecranConnexion();
+ document.getElementById('main').innerHTML = (SRV.etat && SRV.etat.installation) ? ecranInstallation() : ecranConnexion();
  const p=document.getElementById('cnx-mdp'); if(p) p.value=CNX.motdepasse;
 }
 
@@ -23105,6 +24122,561 @@ async function srvDeconnecter(){
  location.reload();
 }
 
+/* ==========================================================================
+   LOT 08 — LE DOUBLE FACTEUR, SON COMPTE, L'ÉQUIPE
+   --------------------------------------------------------------------------
+   Le serveur demandait déjà un code à six chiffres à qui l'avait activé — et
+   rien, à l'écran, ne permettait de l'activer. Le voici, en trois endroits :
+
+     · LA PORTE. Quand le cabinet l'exige — c'est le défaut —, une session
+       ouverte avec le seul mot de passe n'ouvre rien : l'écran qui suit la
+       connexion est celui qui relie le compte à un téléphone. Pas de « plus
+       tard » : un mot de passe seul n'ouvre plus un dossier.
+
+     · MON COMPTE. Changer de téléphone, changer de mot de passe, fermer les
+       sessions oubliées sur un autre poste.
+
+     · L'ÉQUIPE. L'administrateur crée les comptes, remet les liens, désactive
+       un départ, ferme des sessions, retire le double facteur d'un téléphone
+       perdu — ce que seul le Terminal savait faire. Le serveur inscrit chaque
+       geste au journal de l'administration ; l'écran le montre.
+
+   Ce que l'écran ne fait jamais : choisir un mot de passe pour quelqu'un, ni
+   en garder un. Celui qu'on vient de taper pour se connecter sert une fois, à
+   préparer le double facteur, et n'est rangé nulle part. Le lien
+   d'enrôlement s'affiche avec un bouton pour le copier ; c'est
+   l'administrateur qui le remet, de la main à la main ou par un message
+   direct — un lien qui ouvre un compte ne part pas tout seul par courriel.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Relier un téléphone : le même formulaire à la porte et dans « Mon compte »
+   -------------------------------------------------------------------------- */
+let A2F = {ou:null, etape:'repos', secret:'', uri:'', code:'', erreur:'', occupe:false};
+/* ou : 'porte' (l'écran qui suit la connexion) · 'compte' (Mon compte)
+   etape : 'repos' · 'mdp' (confirmer le mot de passe) · 'qr' (scanner, taper le code) */
+function a2fRaz(ou){ A2F={ou:ou||null, etape:'repos', secret:'', uri:'', code:'', erreur:'', occupe:false} }
+/* La saisie d'un code à six chiffres, partout la même (correctif du
+   3 octobre 2026). Les applications l'affichent « 123 456 » : un code collé
+   avec son espace était coupé à « 123 45 » par la longueur maximale du
+   champ, et refusé sans un mot. On ne garde que les chiffres, six au plus. Il
+   ne part pas de lui-même au sixième : un Entrée tapé par habitude, juste
+   après, remplacerait la réponse du serveur par « six chiffres ». */
+function codeSaisi(el, ou){
+ const v=String(el.value||'').replace(/\D/g,'').slice(0,6);
+ if(el.value!==v) el.value=v;
+ if(ou==='cnx') CNX.code=v; else A2F.code=v;
+}
+const cleLisible=s=>String(s||'').replace(/(.{4})/g,'$1 ').trim();
+/* La session n'est plus là — expirée, coupée ailleurs : on recharge, c'est
+   l'écran de connexion qui répond. Un formulaire qui insisterait sur une
+   session morte ferait croire à une erreur de saisie. */
+const sessionPerdue=r=>!!(r&&r.code===401&&r.corps&&r.corps.identifier);
+
+function a2fRepeindre(){ if(A2F.ou==='porte') peindreA2fPorte(); else paint() }
+
+async function a2fPreparer(mdp){
+ if(A2F.occupe) return;
+ A2F.occupe=true; A2F.erreur=''; A2F.etape=A2F.etape==='repos'?'mdp':A2F.etape; a2fRepeindre();
+ let r; try{ r=await srvAppel('POST','/api/totp/preparer',{motdepasse:String(mdp||'')}) }catch(e){ r={code:0} }
+ A2F.occupe=false;
+ if(r.code===200){
+   A2F.secret=r.corps.secret; A2F.uri=r.corps.uri; A2F.etape='qr'; A2F.code='';
+   a2fRepeindre();
+   setTimeout(()=>{ const e=document.getElementById('a2f-code'); if(e) e.focus() },60);
+   return;
+ }
+ if(sessionPerdue(r)){ location.reload(); return }
+ A2F.etape='mdp';
+ A2F.erreur=r.code===0?'Le serveur ne répond pas. Réessayez dans un instant.'
+   :((r.corps&&r.corps.erreur)||'Préparation impossible.');
+ a2fRepeindre();
+ setTimeout(()=>{ const e=document.getElementById('a2f-mdp'); if(e) e.focus() },60);
+}
+
+async function a2fActiver(){
+ if(A2F.occupe) return;
+ const e=document.getElementById('a2f-code'); if(e) A2F.code=e.value;
+ const code=String(A2F.code||'').replace(/\s+/g,'');
+ if(!/^[0-9]{6}$/.test(code)){ A2F.erreur='Le code fait six chiffres.'; a2fRepeindre(); return }
+ A2F.occupe=true; A2F.erreur=''; a2fRepeindre();
+ let r; try{ r=await srvAppel('POST','/api/totp/activer',{code}) }catch(_){ r={code:0} }
+ A2F.occupe=false;
+ if(r.code===200){
+   const n=+r.corps.sessions_coupees||0, ou=A2F.ou;
+   /* le secret quitte la mémoire de la page dès qu'il a servi */
+   a2fRaz(null);
+   toast('Double facteur activé'+(n?` · ${n} autre${n>1?'s':''} session${n>1?'s':''} fermée${n>1?'s':''}`:''));
+   if(ou==='porte'){
+     const etat=await srvMoi();
+     if(etat===true){ clActif=false; document.body.classList.remove('en-connexion'); paint() }
+     else if(etat==='a2f'){ a2fRaz('porte'); A2F.etape='mdp'; peindreA2fPorte() }
+     /* le téléphone est relié, la session aussi : un refus de l'espace se
+        dit ici — recharger renvoyait à la connexion, et à un second code */
+     else if(etat==='echec') peindreEchecEspace();
+     else location.reload();
+     return;
+   }
+   COMPTE.etat='vide'; paint(); return;
+ }
+ if(sessionPerdue(r)){ location.reload(); return }
+ A2F.code='';
+ A2F.erreur=r.code===0?'Le serveur ne répond pas.':((r.corps&&r.corps.erreur)||'Activation impossible.');
+ a2fRepeindre();
+ setTimeout(()=>{ const x=document.getElementById('a2f-code'); if(x) x.focus() },60);
+}
+
+function a2fForm(){
+ const err=A2F.erreur?`<div class="cnx-err"><span class="e">⚠</span><div>${esc(A2F.erreur)}</div></div>`:'';
+ if(A2F.etape!=='qr') return `${err}
+  <form onsubmit="event.preventDefault();a2fPreparer((document.getElementById('a2f-mdp')||{}).value)">
+   <label class="cnx-l">Votre mot de passe AISTO, pour confirmer que c’est bien vous
+     <input class="inp" id="a2f-mdp" type="password" autocomplete="current-password"></label>
+   <button class="btn p cnx-btn" type="submit" ${A2F.occupe?'disabled':''}>${A2F.occupe?'Un instant…':'Continuer'}</button>
+  </form>`;
+ const compte=(()=>{ try{ return decodeURIComponent(A2F.uri.split('?')[0].split('/').pop()) }catch(e){ return 'AISTO' } })();
+ /* Un nombre entier de pixels par module : un code mis à l'échelle au
+    hasard se brouille sur ses bords, et un téléphone le lit moins bien. */
+ const qm=qrMatrice(A2F.uri), T=qm?qm.n+8:57, cote=T*Math.max(3,Math.floor(184/T));
+ return `<div class="a2f-qr">${qrSVG(A2F.uri,cote,'QR code à scanner avec votre application d’authentification')}
+   <ol class="a2f-et">
+    <li>Ouvrez l’application d’authentification de votre téléphone : Google Authenticator,
+        Microsoft Authenticator, ou celle de votre gestionnaire de mots de passe.</li>
+    <li>Ajoutez un compte, et <b>scannez ce code</b>.</li>
+    <li>Tapez ci-dessous les <b>six chiffres</b> qu’elle affiche.</li>
+   </ol></div>
+  <details class="a2f-cle"><summary>Impossible de scanner ? Saisissez la clé à la main</summary>
+   <div class="a2f-cle-v" id="a2f-cle">${esc(cleLisible(A2F.secret))}</div>
+   <div class="mu" style="font-size:11px">Compte « ${esc(compte)} » · basé sur l’heure · six chiffres · trente secondes.</div>
+  </details>
+  ${err}
+  <form onsubmit="event.preventDefault();a2fActiver()">
+   <label class="cnx-l">Code à six chiffres
+     <input class="inp cnx-code" id="a2f-code" inputmode="numeric" autocomplete="one-time-code"
+            value="${esc(A2F.code)}" oninput="codeSaisi(this,'a2f')"></label>
+   <button class="btn p cnx-btn" type="submit" ${A2F.occupe?'disabled':''}>${A2F.occupe?'Un instant…':'Activer le double facteur'}</button>
+  </form>
+  <div class="mu" style="font-size:11.5px;margin-top:9px;line-height:1.45">Le code est refusé ? Vérifiez que
+   l’heure de votre téléphone se règle automatiquement. Et si vous changez de téléphone un jour,
+   c’est dans « Mon compte ».</div>`;
+}
+
+/* --------------------------------------------------------------------------
+   La porte du double facteur
+   -------------------------------------------------------------------------- */
+function ecranA2fPorte(){
+ const nom=(SRV.moi&&SRV.moi.nom)||'';
+ return `<div class="cnx-fond"><div class="cnx-carte a2f-carte">
+   <div class="cnx-tete">
+     <div class="cnx-logo">Activez le double facteur</div>
+     <div class="cnx-sous">${nom?`Bonjour ${esc(nom)}. `:''}Dans ce cabinet, un mot de passe seul
+       n’ouvre pas les dossiers : il faut aussi le code de votre téléphone. Reliez-le maintenant —
+       une minute, une seule fois.</div>
+   </div>
+   ${a2fForm()}
+   <div class="cnx-pied">Pas de téléphone sous la main ? <a onclick="srvDeconnecter()">Se déconnecter</a>
+     et revenir plus tard : rien ne s’ouvrira sans lui.</div>
+ </div></div>`;
+}
+function peindreA2fPorte(){
+ A2F.ou='porte';
+ document.body.classList.add('en-connexion');
+ ['over','pal','pdfv','parv','envv','voix'].forEach(i=>{ const e=document.getElementById(i); if(e) e.classList.remove('on') });
+ const sc=document.getElementById('scrim'); if(sc) sc.classList.remove('on');
+ document.getElementById('main').innerHTML=ecranA2fPorte();
+ const f=document.getElementById(A2F.etape==='qr'?'a2f-code':'a2f-mdp');
+ if(f && !A2F.occupe) setTimeout(()=>f.focus(),40);
+}
+
+/* --------------------------------------------------------------------------
+   Mon compte
+   -------------------------------------------------------------------------- */
+let COMPTE={etat:'vide', moi:null, sessions:[], erreur:null, mdp:{erreur:'', ok:'', occupe:false}, retrait:false};
+
+async function chargerCompte(){
+ if(!CONNECTE()) return;
+ COMPTE.etat='charge';
+ try{
+   const [m,s]=await Promise.all([srvAppel('GET','/api/moi'), srvAppel('GET','/api/sessions')]);
+   if(sessionPerdue(m)){ location.reload(); return }
+   if(m.code!==200) throw new Error((m.corps&&m.corps.erreur)||('le serveur a répondu '+m.code));
+   COMPTE.moi=m.corps;
+   COMPTE.sessions=(s.code===200&&Array.isArray(s.corps))?s.corps:[];
+   COMPTE.etat='pret'; COMPTE.erreur=null;
+ }catch(e){ COMPTE.etat='erreur'; COMPTE.erreur=e.message }
+ if(view==='compte') paint();
+}
+
+/* Le navigateur et le système, en clair : « Chrome sur Mac », pas une chaîne
+   d'agent de cent caractères. */
+function posteDe(agent){
+ const a=String(agent||'');
+ const nav=/Edg\//.test(a)?'Edge':/Firefox\//.test(a)?'Firefox':/Chrome\//.test(a)?'Chrome'
+   :/Safari\//.test(a)?'Safari':'Navigateur';
+ const os=/iPhone|iPad/.test(a)?'iPhone/iPad':/Android/.test(a)?'Android':/Mac OS X|Macintosh/.test(a)?'Mac'
+   :/Windows/.test(a)?'Windows':/Linux/.test(a)?'Linux':'';
+ return os?`${nav} sur ${os}`:nav;
+}
+
+function a2fCommencer(){ a2fRaz('compte'); A2F.etape='mdp'; paint();
+ setTimeout(()=>{ const e=document.getElementById('a2f-mdp'); if(e) e.focus() },50) }
+
+async function a2fRetirer(){
+ const e=document.getElementById('a2f-retrait');
+ let r; try{ r=await srvAppel('POST','/api/totp/desactiver',{motdepasse:e?e.value:''}) }catch(_){ r={code:0} }
+ if(r.code===200){ COMPTE.retrait=false; toast('Double facteur retiré'); COMPTE.etat='vide'; paint(); return }
+ if(sessionPerdue(r)){ location.reload(); return }
+ if(e) e.value='';
+ toast(refusEcriture(r));
+}
+
+function carteA2f(d){
+ const enCours=A2F.ou==='compte'&&A2F.etape!=='repos';
+ const etat=d.actif?bdg('b-good','✓ Actif'):(d.exige?bdg('b-crit','À activer — exigé ici'):bdg('b-warn','Inactif'));
+ let corps;
+ if(enCours) corps=`<div class="a2f-dans">${a2fForm()}
+   <button class="btn g xs" style="margin-top:9px" onclick="a2fRaz(null);paint()">Annuler</button></div>`;
+ else if(d.actif) corps=`<p class="cpt-p">Actif depuis le ${d.depuis?DF(d.depuis):'—'}. À chaque connexion,
+   AISTO vous demande le code de votre téléphone, en plus du mot de passe.</p>
+  <div class="cpt-a"><button class="btn xs" onclick="a2fCommencer()">Changer de téléphone</button>
+   ${d.exige?'':`<button class="btn xs g" onclick="COMPTE.retrait=!COMPTE.retrait;paint()">Retirer le double facteur</button>`}</div>
+  ${(!d.exige&&COMPTE.retrait)?`<form class="cpt-retrait" onsubmit="event.preventDefault();a2fRetirer()">
+    <input class="inp" id="a2f-retrait" type="password" autocomplete="current-password" placeholder="Votre mot de passe">
+    <button class="btn xs crit" type="submit">Retirer</button></form>`:''}
+  ${d.exige?`<div class="mu cpt-n">Le double facteur est exigé dans ce cabinet : on le change, on ne le retire pas.
+    Téléphone perdu ? L’administrateur peut le retirer, et vous en relierez un nouveau à la connexion suivante.</div>`:''}`;
+ else corps=`<p class="cpt-p">Le code de votre téléphone, en plus du mot de passe : un mot de passe deviné ou
+   volé ne suffit plus à ouvrir les dossiers.</p>
+  <div class="cpt-a"><button class="btn xs p" onclick="a2fCommencer()">Activer le double facteur</button></div>`;
+ return `<div class="card"><div class="h"><h2>Double facteur</h2><span class="s">${etat}</span></div>
+  <div class="b">${corps}</div></div>`;
+}
+
+async function changerMdp(){
+ const g=id=>{ const e=document.getElementById(id); return e?e.value:'' };
+ const ancien=g('mdp-a'), nouveau=g('mdp-n'), rep=g('mdp-r');
+ COMPTE.mdp={erreur:'', ok:'', occupe:false};
+ if(!ancien||!nouveau){ COMPTE.mdp.erreur='Le mot de passe actuel et le nouveau sont requis.'; paint(); return }
+ if(nouveau!==rep){ COMPTE.mdp.erreur='Les deux saisies du nouveau mot de passe diffèrent.'; paint(); return }
+ COMPTE.mdp.occupe=true; paint();
+ let r; try{ r=await srvAppel('POST','/api/motdepasse',{ancien, nouveau}) }catch(_){ r={code:0} }
+ COMPTE.mdp.occupe=false;
+ if(r.code===200){
+   const n=Math.max(0,(+r.corps.sessions_coupees||0)-1);
+   COMPTE.mdp.ok='Mot de passe changé.'+(n?` ${n} autre${n>1?'s':''} session${n>1?'s':''} fermée${n>1?'s':''}.`:'');
+   COMPTE.etat='vide'; paint(); return;
+ }
+ if(sessionPerdue(r)){ location.reload(); return }
+ COMPTE.mdp.erreur=r.code===0?'Le serveur ne répond pas.':((r.corps&&r.corps.erreur)||'Changement impossible.');
+ paint();
+}
+
+function carteMdp(){
+ const M=COMPTE.mdp;
+ return `<div class="card"><div class="h"><h2>Mot de passe</h2></div><div class="b">
+  ${M.ok?`<div class="tip" style="margin-bottom:11px"><span class="e">✓</span><div>${esc(M.ok)}</div></div>`:''}
+  ${M.erreur?`<div class="cnx-err"><span class="e">⚠</span><div>${esc(M.erreur)}</div></div>`:''}
+  <form class="cpt-f" onsubmit="event.preventDefault();changerMdp()">
+   <label class="cnx-l">Mot de passe actuel
+     <input class="inp" id="mdp-a" type="password" autocomplete="current-password"></label>
+   <label class="cnx-l">Nouveau mot de passe
+     <input class="inp" id="mdp-n" type="password" autocomplete="new-password"></label>
+   <label class="cnx-l">Répétez-le
+     <input class="inp" id="mdp-r" type="password" autocomplete="new-password"></label>
+   <div class="mu cpt-n">Au moins 12 caractères : une phrase dont vous vous souvenez protège mieux qu’un mot
+     court avec des symboles. Changer de mot de passe ferme vos autres sessions.</div>
+   <button class="btn p xs" type="submit" ${M.occupe?'disabled':''}>${M.occupe?'Un instant…':'Changer le mot de passe'}</button>
+  </form></div></div>`;
+}
+
+async function fermerAutresSessions(){
+ let r; try{ r=await srvAppel('DELETE','/api/sessions',{autres:true}) }catch(_){ r={code:0} }
+ if(r.code===200){ const n=+r.corps.coupees||0;
+   toast(n?`${n} session${n>1?'s':''} fermée${n>1?'s':''}`:'Aucune autre session ouverte');
+   COMPTE.etat='vide'; paint(); return }
+ if(sessionPerdue(r)){ location.reload(); return }
+ toast(refusEcriture(r));
+}
+
+function carteSessions(){
+ const S=COMPTE.sessions||[];
+ return `<div class="card"><div class="h"><h2>Sessions ouvertes</h2><span class="s">${S.length}</span>
+   ${S.length>1?`<div class="r"><button class="btn xs" onclick="fermerAutresSessions()">Fermer les autres sessions</button></div>`:''}</div>
+  <div class="tw"><table>
+   <thead><tr><th>Poste</th><th>Adresse</th><th>Ouverte</th><th>Dernière activité</th><th></th></tr></thead>
+   <tbody>${S.map(s=>`<tr><td>${esc(posteDe(s.agent))}</td><td class="mono mu">${esc(s.ip||'—')}</td>
+     <td class="mono mu nw">${DTS(minuteLocale(s.cree_le))}</td><td class="mono mu nw">${DTS(minuteLocale(s.vue_le))}</td>
+     <td>${s.celle_ci?bdg('b-info','cette session'):''}</td></tr>`).join('')}</tbody></table></div>
+  <div class="b" style="border-top:1px solid var(--line)"><div class="mu" style="font-size:11.5px">Un poste oublié
+   dans une autre salle, un téléphone perdu : fermez ses sessions ici. Sinon, une session se ferme
+   d’elle-même 24 heures après la connexion — fermer l’onglet ne déconnecte pas : en quittant la pièce,
+   verrouillez l’ordinateur.</div></div></div>`;
+}
+
+V.compte=()=>{
+ const R=ROLES[role]||{};
+ const ident=CONNECTE()&&SRV.moi&&SRV.moi.identifiant;
+ const tete=`<div class="head"><div><h1>Mon compte</h1><p>${esc(R.u||'')} · ${esc(R.l||role)}${
+   ident?` · identifiant <span class="mono">${esc(ident)}</span>`:''}</p></div></div>`;
+ if(!CONNECTE()) return tete+`<div class="tip"><span class="e">🔐</span><div><b>Démonstration.</b> Le mot de passe,
+   le double facteur et les sessions se règlent sur le serveur du cabinet ; cette version de démonstration n’en a pas.
+   Sur le serveur, c’est ici que chacun relie son téléphone, change son mot de passe et ferme une session oubliée.</div></div>`;
+ if(COMPTE.etat==='vide') chargerCompte();
+ if(COMPTE.etat==='vide'||COMPTE.etat==='charge') return tete+'<div class="empty">Lecture de votre compte…</div>';
+ if(COMPTE.etat==='erreur') return tete+`<div class="tip ko"><span class="e">⚠</span><div>Votre compte ne se lit pas :
+   ${esc(COMPTE.erreur||'')}<div style="margin-top:8px"><button class="btn xs" onclick="COMPTE.etat='vide';paint()">Réessayer</button></div></div></div>`;
+ return tete+`<div class="cpt-g">${carteA2f(COMPTE.moi.double_facteur||{})}${carteMdp()}${carteSessions()}</div>`;
+};
+
+/* --------------------------------------------------------------------------
+   L'équipe, côté serveur
+   -------------------------------------------------------------------------- */
+let EQ={etat:'vide', comptes:[], cnx:[], journal:[], erreur:null, occupe:false, lien:null, ajout:null, confirme:null};
+
+async function chargerEquipe(){
+ if(!CONNECTE()||!EST_ADMIN()) return;
+ EQ.etat='charge';
+ try{
+   const [c,x,j]=await Promise.all([srvAppel('GET','/api/comptes'), srvAppel('GET','/api/connexions?n=30'),
+                                    srvAppel('GET','/api/administration?n=30')]);
+   if(sessionPerdue(c)){ location.reload(); return }
+   if(c.code!==200) throw new Error((c.corps&&c.corps.erreur)||('le serveur a répondu '+c.code));
+   EQ.comptes=Array.isArray(c.corps)?c.corps:[];
+   EQ.cnx=(x.code===200&&Array.isArray(x.corps))?x.corps:[];
+   EQ.journal=(j.code===200&&Array.isArray(j.corps))?j.corps:[];
+   EQ.etat='pret'; EQ.erreur=null;
+ }catch(e){ EQ.etat='erreur'; EQ.erreur=e.message }
+ if(view==='equipe') paint();
+}
+
+/* L'adresse où l'interface est servie : c'est elle que le lien doit ouvrir. */
+const baseInterface=()=>location.origin+location.pathname.replace(/\/[^/]*$/,'');
+
+/* « Dr Claire Tessier » → « c.tessier ». Une proposition : le champ reste
+   modifiable, et le serveur a le dernier mot sur la forme. */
+function identSuggere(nom){
+ const mots=String(nom||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase()
+   .replace(/[^a-z0-9 -]/g,' ').split(/\s+/).filter(m=>m&&!/^(dr|docteur|pr|professeur|mme|madame|m|mr|monsieur|mlle)$/.test(m));
+ if(!mots.length) return '';
+ if(mots.length===1) return mots[0].slice(0,40);
+ return (mots[0][0]+'.'+mots.slice(1).join('-')).slice(0,40);
+}
+
+function eqOuvrirAjout(){
+ EQ.ajout={nom:'', ident:'', identTouche:false, role:'assistante', praticien:false, operateur:true, erreur:''};
+ EQ.lien=null; EQ.confirme=null; paint();
+ setTimeout(()=>{ const e=document.getElementById('eq-nom'); if(e) e.focus() },40);
+}
+function eqMaj(k,v){
+ const A=EQ.ajout; if(!A) return;
+ A[k]=v;
+ if(k==='nom'&&!A.identTouche){ A.ident=identSuggere(v); const e=document.getElementById('eq-ident'); if(e) e.value=A.ident }
+ if(k==='ident') A.identTouche=!!String(v).trim();
+ if(k==='role'){ A.praticien=ROLE_PRAT.includes(v); A.operateur=v==='assistante'; paint() }
+}
+async function eqCreer(){
+ const A=EQ.ajout; if(!A||EQ.occupe) return;
+ const g=id=>{ const e=document.getElementById(id); return e?e.value:null };
+ A.nom=g('eq-nom')??A.nom; A.ident=String(g('eq-ident')??A.ident).trim().toLowerCase();
+ EQ.occupe=true; A.erreur=''; paint();
+ let r; try{ r=await srvAppel('POST','/api/comptes',{identifiant:A.ident, nom:A.nom, role:A.role,
+   praticien:!!A.praticien, operateur:!!A.operateur, base:baseInterface()}) }catch(_){ r={code:0} }
+ EQ.occupe=false;
+ if(r.code===200){
+   EQ.lien={id:r.corps.compte.id, nom:r.corps.compte.nom_affiche, lien:r.corps.lien,
+            expire_le:r.corps.expire_le, motif:'creation'};
+   EQ.ajout=null; toast(`Compte créé : ${r.corps.compte.nom_affiche}`);
+   EQ.etat='vide'; paint(); return;
+ }
+ if(sessionPerdue(r)){ location.reload(); return }
+ A.erreur=r.code===0?'Le serveur ne répond pas.':((r.corps&&r.corps.erreur)||'Création impossible.');
+ paint();
+}
+
+const EQ_CONFIRME={
+ desactiver:(c)=>({t:`Désactiver ${c.nom_affiche} ?`, d:'Ses sessions se ferment et un lien en attente tombe. Ses actes passés restent à son nom ; le compte se réactive quand on veut.', b:'Désactiver'}),
+ sessions:(c)=>({t:`Fermer les sessions de ${c.nom_affiche} ?`, d:'Chacun de ses postes connectés est mis dehors à sa prochaine action. Son mot de passe ne change pas.', b:'Fermer ses sessions'}),
+ a2f:(c)=>({t:`Retirer le double facteur de ${c.nom_affiche} ?`, d:'Pour un téléphone perdu ou changé. Ses sessions se ferment ; à sa prochaine connexion, il reliera un nouveau téléphone avant d’ouvrir un dossier.', b:'Retirer le double facteur'}),
+};
+function eqDemander(id,action){ EQ.confirme={id:String(id), action}; EQ.lien=null; paint() }
+
+async function eqAction(id,action){
+ const c=EQ.comptes.find(x=>String(x.id)===String(id));
+ if(!c||EQ.occupe) return;
+ const appel={
+   lien:['POST',`/api/comptes/${c.id}/enrolement`,{base:baseInterface()}],
+   desactiver:['POST',`/api/comptes/${c.id}/desactiver`,{}],
+   reactiver:['POST',`/api/comptes/${c.id}/reactiver`,{}],
+   sessions:['DELETE',`/api/comptes/${c.id}/sessions`,{}],
+   a2f:['DELETE',`/api/comptes/${c.id}/double-facteur`,{}]}[action];
+ if(!appel) return;
+ EQ.occupe=true; EQ.confirme=null; paint();
+ let r; try{ r=await srvAppel(...appel) }catch(_){ r={code:0} }
+ EQ.occupe=false;
+ if(r.code===200){
+   if(action==='lien') EQ.lien={id:c.id, nom:c.nom_affiche, lien:r.corps.lien, expire_le:r.corps.expire_le, motif:r.corps.motif};
+   const n=+((r.corps&&(r.corps.coupees??r.corps.sessions_coupees))||0);
+   toast({lien:`Lien prêt pour ${c.nom_affiche} — copiez-le`,
+          desactiver:`${c.nom_affiche} est désactivé`+(n?` · ${n} session${n>1?'s':''} fermée${n>1?'s':''}`:''),
+          reactiver:`${c.nom_affiche} est réactivé`,
+          sessions:n?`${n} session${n>1?'s':''} fermée${n>1?'s':''}`:'Aucune session ouverte',
+          a2f:`Double facteur retiré pour ${c.nom_affiche}`}[action]);
+   EQ.etat='vide'; paint(); return;
+ }
+ if(sessionPerdue(r)){ location.reload(); return }
+ toast(refusEcriture(r)); paint();
+}
+
+async function copierLien(){
+ const e=document.getElementById('eq-lien'); if(!e) return;
+ try{ await navigator.clipboard.writeText(e.value); toast('Lien copié') }
+ catch(_){
+   e.focus(); e.select();
+   try{ document.execCommand('copy'); toast('Lien copié') }catch(__){ toast('Sélectionnez le lien et copiez-le (⌘C)') }
+ }
+}
+
+function eqEtat(c){
+ if(!c.actif) return bdg('b-neu','⊘ Désactivé');
+ if(!c.mot_de_passe_pose) return c.lien_expire_le?bdg('b-info','Lien en attente'):bdg('b-warn','⚠ Sans mot de passe');
+ if(c.totp_actif) return bdg('b-good','✓ Double facteur');
+ return bdg('b-warn','⚠ Téléphone à relier');
+}
+
+function eqCarteLien(){
+ const L=EQ.lien; if(!L) return '';
+ const creation=L.motif==='creation';
+ return `<div class="encf eq-lien" style="margin-bottom:13px">
+  <div class="fcf-t">🔗 ${creation?'Lien d’activation':'Lien de réinitialisation'} pour ${esc(L.nom)}</div>
+  <div class="lien-box"><input class="inp" id="eq-lien" readonly value="${esc(L.lien)}" onfocus="this.select()"
+     aria-label="Lien à remettre à ${esc(L.nom)}">
+   <button class="btn xs p" onclick="copierLien()">Copier</button></div>
+  <div class="mu" style="font-size:11.5px;margin-top:8px;line-height:1.5">Valable jusqu’au ${DTS(minuteLocale(L.expire_le))},
+   et une seule fois. Remettez-le à ${esc(L.nom)} de la main à la main, ou par un message direct :
+   il ouvre le compte, il ne doit pas traîner dans une boîte partagée.
+   ${creation?'La personne y choisira son mot de passe, puis reliera son téléphone à sa première connexion.'
+     :'Son mot de passe actuel cessera de servir dès qu’elle aura choisi le nouveau.'}
+   Il ne sera plus affiché : la base n’en garde que l’empreinte.</div>
+  <div class="encf-a" style="margin-top:8px"><span style="flex:1"></span>
+   <button class="btn xs g" onclick="EQ.lien=null;paint()">J’ai remis le lien</button></div></div>`;
+}
+
+function eqFormAjout(){
+ const A=EQ.ajout; if(!A) return '';
+ return `<div class="encf" style="margin-bottom:13px">
+  <div class="fcf-t">+ Ajouter un compte</div>
+  ${A.erreur?`<div class="cnx-err" style="margin:6px 0 9px"><span class="e">⚠</span><div>${esc(A.erreur)}</div></div>`:''}
+  <form onsubmit="event.preventDefault();eqCreer()">
+  <div class="encf-g" style="align-items:end">
+   <label>Nom affiché
+     <input class="inp" id="eq-nom" placeholder="Dr Claire Tessier" value="${esc(A.nom)}" oninput="eqMaj('nom',this.value)"></label>
+   <label>Identifiant <span class="mu">— pour se connecter</span>
+     <input class="inp mono" id="eq-ident" placeholder="c.tessier" value="${esc(A.ident)}" autocomplete="off"
+            oninput="eqMaj('ident',this.value)"></label>
+   <label>Rôle
+     <select class="inp" id="eq-role" onchange="eqMaj('role',this.value)">
+      ${RK.map(r=>`<option value="${r}" ${A.role===r?'selected':''}>${esc(ROLES[r].l)}</option>`).join('')}</select></label>
+  </div>
+  <div class="eq-cases">
+   <label><input type="checkbox" ${A.praticien?'checked':''} onchange="EQ.ajout.praticien=this.checked"> Praticien — signe des actes</label>
+   <label><input type="checkbox" ${A.operateur?'checked':''} onchange="EQ.ajout.operateur=this.checked"> Opérateur — assiste aux actes sans les signer</label>
+  </div>
+  <div class="encf-a" style="margin-top:9px">
+   <span class="mu" style="font-size:11px;flex:1;line-height:1.45">Le compte naît sans mot de passe. AISTO affiche un lien
+    à usage unique, valable 48 heures : la personne y choisit son mot de passe, puis relie son téléphone à sa première connexion.</span>
+   <button class="btn xs g" type="button" onclick="EQ.ajout=null;paint()">Annuler</button>
+   <button class="btn xs p" type="submit" ${EQ.occupe?'disabled':''}>${EQ.occupe?'Un instant…':'Créer et obtenir le lien'}</button>
+  </div></form></div>`;
+}
+
+const CNX_ISSUE_SRV={...CNX_ISSUE,
+ totp_rejoue:['b-crit','Code déjà servi'],
+ bloque_essaimage:['b-crit','⛔ Freiné · plusieurs comptes visés'],
+ bloque_deluge:['b-crit','⛔ Freiné · trop de tentatives']};
+const ADM_LIB={creation:'Compte créé', lien:'Lien remis', desactivation:'Compte désactivé',
+ reactivation:'Compte réactivé', sessions_coupees:'Sessions fermées', double_facteur_retire:'Double facteur retiré'};
+function admDetail(x){
+ const d=x.detail||{};
+ if(x.action==='lien') return d.motif==='reinitialisation'?'réinitialisation':'activation';
+ if(x.action==='creation') return (ROLES[d.role]||{}).l||d.role||'';
+ if(x.action==='desactivation'||x.action==='double_facteur_retire')
+   return d.sessions_coupees?`${d.sessions_coupees} session${d.sessions_coupees>1?'s':''} fermée${d.sessions_coupees>1?'s':''}`:'';
+ if(x.action==='sessions_coupees') return `${+d.nombre||0} session${(+d.nombre||0)>1?'s':''}`;
+ return '';
+}
+
+function vueEquipeServeur(){
+ const tete=sous=>`<div class="head"><div><h1>Équipe &amp; droits</h1><p>${sous}</p></div>
+   ${EST_ADMIN()&&EQ.etat==='pret'?`<div class="r"><button class="btn p ${EQ.ajout?'g':''}" onclick="${EQ.ajout?'EQ.ajout=null;paint()':'eqOuvrirAjout()'}">${EQ.ajout?'✕ Annuler':'+ Ajouter un compte'}</button></div>`:''}</div>`;
+ if(!EST_ADMIN()) return tete('les comptes du cabinet')+`<div class="tip"><span class="e">👥</span><div>La gestion des comptes
+   est réservée à l’administrateur du cabinet. Pour votre propre compte — mot de passe, double facteur, sessions —
+   <a onclick="go('compte')">c’est dans « Mon compte »</a>.</div></div>`;
+ if(EQ.etat==='vide') chargerEquipe();
+ if(EQ.etat==='vide'||EQ.etat==='charge') return tete('lecture…')+'<div class="empty">Lecture des comptes…</div>';
+ if(EQ.etat==='erreur') return tete('')+`<div class="tip ko"><span class="e">⚠</span><div>Les comptes ne se lisent pas :
+   ${esc(EQ.erreur||'')}<div style="margin-top:8px"><button class="btn xs" onclick="EQ.etat='vide';paint()">Réessayer</button></div></div></div>`;
+ const C=EQ.comptes, act=C.filter(c=>c.actif);
+ const sansTel=act.filter(c=>c.mot_de_passe_pose&&!c.totp_actif).length;
+ const moi=SRV.moi?Number(SRV.moi.id):null;
+ const ligne=c=>{
+   const soi=Number(c.id)===moi, n=+c.sessions||0;
+   const btns=[
+     c.actif?`<button class="btn xs" onclick="eqAction(${+c.id},'lien')" title="${c.mot_de_passe_pose
+       ?'Mot de passe perdu : un lien pour en choisir un nouveau, valable 48 heures'
+       :'Un lien pour choisir son mot de passe, valable 48 heures'}">🔗 ${c.mot_de_passe_pose?'Réinitialiser':'Lien d’activation'}</button>`:'',
+     (c.actif&&n)?`<button class="btn xs g" onclick="eqDemander(${+c.id},'sessions')">Fermer ses sessions</button>`:'',
+     (c.actif&&c.totp_actif&&!soi)?`<button class="btn xs g" onclick="eqDemander(${+c.id},'a2f')">Retirer le double facteur</button>`:'',
+     soi?'':(c.actif?`<button class="btn xs g" onclick="eqDemander(${+c.id},'desactiver')">Désactiver</button>`
+                    :`<button class="btn xs p" onclick="eqAction(${+c.id},'reactiver')">Réactiver</button>`),
+   ].filter(Boolean).join(' ');
+   const conf=(EQ.confirme&&EQ.confirme.id===String(c.id))?(EQ_CONFIRME[EQ.confirme.action]||(()=>null))(c):null;
+   return `<tr class="${c.actif?'':'annul'}">
+    <td><b>${esc(c.nom_affiche)}</b>${soi?' <span class="mu">(vous)</span>':''}
+      <div class="mu mono" style="font-size:11px">${esc(c.identifiant)}</div></td>
+    <td class="mu">${esc((ROLES[c.role]||{}).l||c.role)}${c.praticien?'<div class="mu" style="font-size:11px">praticien</div>':''}</td>
+    <td>${eqEtat(c)}${(!c.mot_de_passe_pose&&c.lien_expire_le)?`<div class="mu" style="font-size:10.5px">jusqu’au ${DTS(minuteLocale(c.lien_expire_le))}</div>`:''}</td>
+    <td class="mono mu nw">${c.derniere_connexion?DTS(minuteLocale(c.derniere_connexion)):'<span class="mu">jamais</span>'}</td>
+    <td class="num mono">${n||'<span class="mu">—</span>'}</td>
+    <td class="num eq-a">${btns}</td></tr>
+   ${conf?`<tr class="eq-conf"><td colspan="6"><div class="suppb"><span class="e">⚠</span>
+     <div style="flex:1;min-width:0"><b>${esc(conf.t)}</b><div class="mu">${esc(conf.d)}</div></div>
+     <button class="btn xs g" onclick="EQ.confirme=null;paint()">Annuler</button>
+     <button class="btn xs crit" onclick="eqAction(${+c.id},'${EQ.confirme.action}')" ${EQ.occupe?'disabled':''}>${esc(conf.b)}</button></div></td></tr>`:''}`;
+ };
+ return tete(`${C.length} compte${C.length>1?'s':''} · ${act.length} actif${act.length>1?'s':''}${
+     sansTel?` · <b style="color:var(--crit-txt)">${sansTel} sans téléphone relié</b>`:''}`)
+ +eqCarteLien()+eqFormAjout()
+ +`<div class="grid">
+  <div class="card"><div class="h"><h2>Comptes</h2><span class="s">chacun choisit son mot de passe ; personne d’autre ne le connaît</span></div>
+   <div class="tw"><table class="eq-t">
+    <thead><tr><th>Nom</th><th>Rôle</th><th>Accès</th><th>Dernière connexion</th><th class="num">Sessions</th><th></th></tr></thead>
+    <tbody>${C.map(ligne).join('')}</tbody></table></div>
+   <div class="b" style="border-top:1px solid var(--line)"><div class="mu" style="font-size:11.5px;line-height:1.5">
+    Un compte ne se supprime pas : il se <b>désactive</b>. La personne ne peut plus entrer, mais ses actes passés restent
+    à son nom — dans un dossier médical, on doit toujours pouvoir dire qui a fait quoi. Chaque geste de cet écran
+    s’inscrit au journal de l’administration, ci-dessous.</div></div></div>
+  <div class="card"><div class="h"><h2>Journal de l’administration</h2><span class="s">les ${EQ.journal.length} derniers gestes</span></div>
+   ${EQ.journal.length?`<div class="tw"><table>
+    <thead><tr><th>Quand</th><th>Par</th><th>Geste</th><th>Compte</th></tr></thead>
+    <tbody>${EQ.journal.map(x=>`<tr><td class="mono mu nw">${DTS(minuteLocale(x.horodatage))}</td>
+      <td>${x.par?esc(x.par_nom||'—'):'<span class="mu">la console</span>'}</td>
+      <td>${esc(ADM_LIB[x.action]||x.action)}${admDetail(x)?` <span class="mu">· ${esc(admDetail(x))}</span>`:''}</td>
+      <td>${esc(x.cible_nom||'—')}</td></tr>`).join('')}</tbody></table></div>`
+    :'<div class="empty">Aucun geste encore inscrit.</div>'}</div>
+  <div class="card"><div class="h"><h2>Connexions</h2><span class="s">les ${EQ.cnx.length} dernières tentatives</span></div>
+   ${EQ.cnx.length?`<div class="tw"><table>
+    <thead><tr><th>Quand</th><th>Identifiant présenté</th><th>Adresse</th><th>Issue</th></tr></thead>
+    <tbody>${EQ.cnx.map(x=>{ const b=CNX_ISSUE_SRV[x.issue]||['b-neu',x.issue];
+      return `<tr><td class="mono mu nw">${DTS(minuteLocale(x.horodatage))}</td>
+       <td class="el" style="max-width:230px" title="${esc(x.identifiant||'—')}">${esc(x.identifiant||'—')}</td>
+       <td class="mono mu">${esc(x.ip||'—')}</td><td>${bdg(b[0],b[1])}</td></tr>` }).join('')}</tbody></table></div>`
+    :'<div class="empty">Personne ne s’est encore présenté à la porte.</div>'}
+   <div class="b" style="border-top:1px solid var(--line)"><div class="mu" style="font-size:11.5px">L’écran de connexion répond
+    la même chose dans tous les cas de refus, pour ne pas livrer la liste des comptes à qui essaie.
+    <b>C’est ici qu’on lit le vrai motif.</b> Aucun mot de passe n’y figure, pas même en partie.</div></div></div>
+ </div>`;
+}
+
 /* --------------------------------------------------------------------------
    Poser ce que le serveur a rendu dans le modèle de l'interface
    --------------------------------------------------------------------------
@@ -23117,6 +24689,20 @@ function srvAppliquerModele(m){
  if(!m) return;
  const poser = (cible, valeur) => { if(Array.isArray(valeur)) remplTab(cible, valeur) };
  poser(PATIENTS, m.patients);
+ /* Correctif du 3 octobre 2026. Ce que le serveur ne garde pas encore — le
+    registre des envois, les autres documents, les retouches — n'existe pas
+    pour un cabinet connecté. La page en fabriquait les exemples au
+    chargement, sur la démonstration : connecté, on voyait un journal de 172
+    messages envoyés à des patients inventés, et 24 documents à leur nom.
+    Les épreuves ne le voyaient pas : leurs patients SONT ceux de la
+    démonstration. Connecté, ces listes partent vides. */
+ remplTab(ENVOIS, []); remplTab(AUTRES_DOCS, []); remplTab(RETOUCHES, []);
+ /* Lot 09 : les photos du serveur, et elles seules. Jusqu'ici l'espace n'en
+    apportait aucune et l'écran gardait celles de la démonstration — qu'un
+    dossier réel portant le numéro d'un patient fictif aurait montrées. Une
+    liste absente (un serveur plus ancien) vide la galerie plutôt que de
+    laisser la démonstration en place. */
+ remplTab(PHOTOS, Array.isArray(m.photos)?m.photos:[]);
  poser(ACTES,    m.actes);
  poser(DEVIS,    m.devis);
  poser(FACTURES, m.factures);
@@ -23175,6 +24761,10 @@ function srvAppliquerDroits(d, moi){
         que la réponse décide d'où viennent les dossiers. */
  const serveur = await srvChercher();
 
+ /* 1 bis · Le téléphone venu par le QR (lot 09) : ni identité, ni espace de
+        travail — le lien, et rien d'autre. */
+ if(jetonURL()){ if(serveur) await priseDemarrer(); else paint(); return }
+
  /* 2 · Un lien d'enrôlement l'emporte sur tout : quelqu'un vient poser son
         mot de passe, il n'a pas encore de compte utilisable. */
  if(serveur){
@@ -23188,8 +24778,13 @@ function srvAppliquerDroits(d, moi){
    }
  }
 
- /* 3 · Une session déjà ouverte ? Alors on charge l'espace et on entre. */
- if(serveur && await srvMoi()){
+ /* 3 · Une session déjà ouverte ? Alors on charge l'espace et on entre — ou,
+        si le cabinet exige le double facteur et qu'elle ne l'a pas vu, on
+        demande d'abord de relier un téléphone (lot 08). */
+ const etat = serveur ? await srvMoi() : false;
+ if(etat === 'a2f'){ a2fRaz('porte'); A2F.etape='mdp'; peindreA2fPorte(); initVersion(); return }
+ if(etat === 'echec'){ peindreEchecEspace(); initVersion(); return }
+ if(etat === true){
    clActif = false;              /* le classeur local se tait : le serveur fait foi */
    paint();
    initVersion();
@@ -23220,7 +24815,7 @@ function srvAppliquerDroits(d, moi){
  paint();
  /* l'écran de départ existe dans l'historique, sinon le premier « précédent »
     n'aurait rien à rejouer et sortirait du logiciel */
- try{ history.replaceState({praxis:navEtat()}, '') }catch(_){}
+ try{ history.replaceState({aisto:navEtat()}, '') }catch(_){}
  if(navT){ clearTimeout(navT); navT=null }
  navSig=JSON.stringify(navEtat());
  initVersion();
