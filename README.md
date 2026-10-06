@@ -3,3 +3,5 @@
 Prototype de gestion de cabinet de medecine esthetique. Donnees entierement fictives : aucun patient reel, aucune photo reelle.
 
 Demo en ligne : https://obaroudi05.github.io/aisto/
+
+Version de la demo : interface GD (octobre 2026).
